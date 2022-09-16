@@ -6,11 +6,14 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Builder
+//@Builder
 @Getter
 @Setter
 public class Customer extends User {
     private Order currentOrder;
     private List<Order> pastOrders;
 
+    Customer(String id, String username, String password) {
+        super(id, username, password);
+    }
 }
