@@ -8,5 +8,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Employee extends User {
-
+    private Integer salary;
 }
