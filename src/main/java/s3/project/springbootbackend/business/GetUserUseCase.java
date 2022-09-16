@@ -1,8 +1,9 @@
 package s3.project.springbootbackend.business;
 
-import s3.project.springbootbackend.domain.GetUserRequest;
-import s3.project.springbootbackend.domain.GetUserResponse;
+import s3.project.springbootbackend.persistence.Entities.UserEntity;
+
+import java.util.Optional;
 
 public interface GetUserUseCase {
-    public GetUserResponse getUser(GetUserRequest getUserRequest);
+    public Optional<UserEntity> getUser(long id);
 }

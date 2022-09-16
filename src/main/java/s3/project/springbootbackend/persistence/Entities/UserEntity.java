@@ -1,15 +1,17 @@
 package s3.project.springbootbackend.persistence.Entities;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Builder
+@Data
 @Getter
 @Setter
-public class Cargo {
-    private double height;
-    private double width;
-    private double length;
-    private double weight;
+public class UserEntity {
+    private Long id;
+    private String username;
+    private String password;
+
 }

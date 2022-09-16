@@ -7,9 +7,9 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class User {
-    private final String id;
-    private String username;
-    private String password;
-
+public class CargoEntity {
+    private double height;
+    private double width;
+    private double length;
+    private double weight;
 }

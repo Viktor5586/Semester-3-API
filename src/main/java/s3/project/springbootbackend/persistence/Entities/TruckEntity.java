@@ -7,7 +7,7 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class Truck {
+public class TruckEntity {
     private final String id;
     private final String licencePlate;
     private final double height;
