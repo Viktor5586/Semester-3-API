@@ -23,7 +23,7 @@ class GetUserUseCaseImplTest {
 
     @InjectMocks
     GetUserUseCaseImpl getUserUseCase;
-/*          wrong(two different id)
+
     @Test
     void getEmployee(){
         Optional<UserEntity> user1 = Optional.of(UserEntity.builder().id(1L).username("sth").password("sth").build());
@@ -33,9 +33,10 @@ class GetUserUseCaseImplTest {
 
         Optional<User> actual = getUserUseCase.getUser(1L);
         Optional<User> user2 = Optional.of(User.builder().id(1L).username("sth").password("sth").build());
+        //Optional<User> user2 = Optional.of(User.builder().id(1L).username("sth").password("sth").build());
 
         assertEquals(user2, actual);
         verify(userRepository).findById(1L);
 
-    }*/
+    }
 }

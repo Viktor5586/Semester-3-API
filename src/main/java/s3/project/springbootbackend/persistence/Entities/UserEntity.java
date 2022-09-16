@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Builder
 @Data
-@Getter
-@Setter
+@Builder
 public class UserEntity {
     private Long id;
     private String username;
