@@ -10,9 +10,9 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 public class CreateUserRequest {
-    //@NotBlank
+    @NotBlank(message = "Field can't be blank")
     private String username;
-    //@NotBlank
-    //@Min(6)
+    @NotBlank
+    @Min(value = 6, message = "Password can't be less than 6 characters")
     private String password;
 }
