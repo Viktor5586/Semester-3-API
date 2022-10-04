@@ -8,6 +8,7 @@ import s3.project.springbootbackend.domain.User;
 import s3.project.springbootbackend.persistence.Entities.UserEntity;
 import s3.project.springbootbackend.persistence.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,10 +16,10 @@ import java.util.List;
 public class GetAllUsersUseCaseImpl implements GetAllUsersUseCase {
 
     private UserRepository userRepository;
+
     @Override
     public GetAllUsersResponse getAllUsers() {
         List<UserEntity> users = userRepository.findAll() ;
-
         GetAllUsersResponse response = new GetAllUsersResponse();
         List<User> students = users
                 .stream()

@@ -9,13 +9,10 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class CreateUserRequest {
-    @NotBlank
+    //@NotBlank
     private String username;
-    @NotBlank
-    @Min(6)
+    //@NotBlank
+    //@Min(6)
     private String password;
 }
