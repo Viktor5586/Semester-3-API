@@ -6,8 +6,8 @@ import lombok.Setter;
 import java.util.List;
 
 //@Builder
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class CustomerEntity extends UserEntity {
     private OrderEntity currentOrderEntity;
     private List<OrderEntity> pastOrderEntities;

@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 //@Builder
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class EmployeeEntity extends UserEntity {
     private Integer salary;
 

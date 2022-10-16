@@ -1,14 +1,12 @@
-package s3.project.springbootbackend.persistence.Entities;
+package s3.project.springbootbackend.domain;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @Builder
-public class TruckEntity {
-    private Long id;
+@AllArgsConstructor
+public class Truck {
+    private final Long id;
     private final String licencePlate;
     private final String location;
     private final double height;
@@ -17,5 +15,4 @@ public class TruckEntity {
     private final double maxWeight;
     private final double tankVolume;
     private final double fuelConsumptionPerKm;
-
 }
