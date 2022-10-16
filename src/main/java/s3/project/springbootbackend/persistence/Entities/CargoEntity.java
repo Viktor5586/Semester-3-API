@@ -5,9 +5,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 @Builder
-@Getter
-@Setter
+@Data
 public class CargoEntity {
+    private Long id;
     private double height;
     private double width;
     private double length;

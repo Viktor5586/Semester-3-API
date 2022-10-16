@@ -21,20 +21,9 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class UserController {
-    private GetUserUseCase userUseCase;
     private GetAllUsersUseCase getAllUsersUseCase;
-    private UserRepository userRepository;
 
     private CreateUserUseCase createUserUseCase;
-
-    /*public UserController(GetUserUseCase getUserUseCase){
-        this.userUseCase = getUserUseCase;
-    }
-
-    public UserController(GetAllUsersUseCase getAllUsersUseCase){
-        this.getAllUsersUseCase = getAllUsersUseCase;
-    }*/
-
     @GetMapping
     public ResponseEntity<?> getUsers(){
         GetAllUsersResponse response = getAllUsersUseCase.getAllUsers();
