@@ -1,9 +1,8 @@
 package s3.project.springbootbackend.persistence.impl;
 
 import org.springframework.stereotype.Repository;
-import s3.project.springbootbackend.persistence.CargoRepository;
-import s3.project.springbootbackend.persistence.Entities.CargoEntity;
-import s3.project.springbootbackend.persistence.Entities.TruckEntity;
+import s3.project.springbootbackend.persistence.repositories.CargoRepository;
+import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
 
 import java.util.ArrayList;
 import java.util.Collections;

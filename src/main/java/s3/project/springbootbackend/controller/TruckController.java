@@ -1,15 +1,14 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import s3.project.springbootbackend.business.CreateTruckUseCase;
-import s3.project.springbootbackend.business.GetAllTrucksUseCase;
-import s3.project.springbootbackend.domain.CreateTruckRequest;
-import s3.project.springbootbackend.domain.CreateTruckResponse;
-import s3.project.springbootbackend.domain.GetAllTrucksResponse;
+import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
+import s3.project.springbootbackend.business.useCases.Truck.GetAllTrucksUseCase;
+import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
+import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
+import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
 
 import javax.validation.Valid;
 

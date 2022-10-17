@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import s3.project.springbootbackend.domain.Truck;
-import s3.project.springbootbackend.persistence.CargoRepository;
-import s3.project.springbootbackend.persistence.Entities.CargoEntity;
-import s3.project.springbootbackend.persistence.Entities.TruckEntity;
-import s3.project.springbootbackend.persistence.Entities.UserEntity;
-import s3.project.springbootbackend.persistence.TruckRepository;
-import s3.project.springbootbackend.persistence.UserRepository;
+import s3.project.springbootbackend.persistence.repositories.CargoRepository;
+import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
+import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
+import s3.project.springbootbackend.persistence.Entities_DTO.UserEntity;
+import s3.project.springbootbackend.persistence.repositories.TruckRepository;
+import s3.project.springbootbackend.persistence.repositories.UserRepository;
 
 @Component
 @AllArgsConstructor

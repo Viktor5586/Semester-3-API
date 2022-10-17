@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import s3.project.springbootbackend.business.CreateCargoUseCase;
-import s3.project.springbootbackend.business.GetAllCargosUseCase;
-import s3.project.springbootbackend.domain.CreateCargoRequest;
-import s3.project.springbootbackend.domain.CreateCargoResponse;
-import s3.project.springbootbackend.domain.GetAllCargosResponse;
+import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
+import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
+import s3.project.springbootbackend.domain.Requests.CreateCargoRequest;
+import s3.project.springbootbackend.domain.Responses.CreateCargoResponse;
+import s3.project.springbootbackend.domain.Responses.GetAllCargosResponse;
 
 import javax.validation.Valid;
 

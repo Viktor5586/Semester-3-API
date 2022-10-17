@@ -1,8 +1,8 @@
 package s3.project.springbootbackend.persistence.impl;
 
 import org.springframework.stereotype.Repository;
-import s3.project.springbootbackend.persistence.Entities.UserEntity;
-import s3.project.springbootbackend.persistence.UserRepository;
+import s3.project.springbootbackend.persistence.Entities_DTO.UserEntity;
+import s3.project.springbootbackend.persistence.repositories.UserRepository;
 
 import java.util.ArrayList;
 import java.util.Collections;

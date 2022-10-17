@@ -5,9 +5,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import s3.project.springbootbackend.domain.User;
-import s3.project.springbootbackend.persistence.Entities.UserEntity;
-import s3.project.springbootbackend.persistence.UserRepository;
+import s3.project.springbootbackend.business.impl.User.GetUserUseCaseImpl;
+import s3.project.springbootbackend.domain.Entities.User;
+import s3.project.springbootbackend.persistence.Entities_DTO.UserEntity;
+import s3.project.springbootbackend.persistence.repositories.UserRepository;
 
 import java.util.Optional;
 
