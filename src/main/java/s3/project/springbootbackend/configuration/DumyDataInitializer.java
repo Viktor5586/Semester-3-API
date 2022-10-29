@@ -7,24 +7,24 @@ import org.springframework.stereotype.Component;
 import s3.project.springbootbackend.persistence.repositories.CargoRepository;
 import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
 import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
-import s3.project.springbootbackend.persistence.Entities_DTO.UserEntity;
+import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
-import s3.project.springbootbackend.persistence.repositories.UserRepository;
+import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 
 @Component
 @AllArgsConstructor
 public class DumyDataInitializer {
-    private UserRepository userRepository;
+    private CustomerRepository customerRepository;
     private TruckRepository truckRepository;
     private CargoRepository cargoRepository;
 
     @EventListener(ApplicationReadyEvent.class)
     public void initialUserDummyData(){
-        if (userRepository.findAll().size() == 0){
-            userRepository.save(UserEntity.builder().username("Gepi").password("asdfghjk").build());
-            userRepository.save(UserEntity.builder().username("Gogi").password("asdfghjk").build());
-            userRepository.save(UserEntity.builder().username("Ko").password("asdfghjk").build());
-            userRepository.save(UserEntity.builder().username("Ne").password("asdfghjk").build());
+        if (customerRepository.findAll().size() == 0){
+            customerRepository.save(CustomerEntity.builder().username("Gepi").password("asdfghjk").build());
+            customerRepository.save(CustomerEntity.builder().username("Gogi").password("asdfghjk").build());
+            customerRepository.save(CustomerEntity.builder().username("Ko").password("asdfghjk").build());
+            customerRepository.save(CustomerEntity.builder().username("Ne").password("asdfghjk").build());
         }
     }
 

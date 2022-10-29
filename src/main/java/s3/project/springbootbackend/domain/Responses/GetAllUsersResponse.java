@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import s3.project.springbootbackend.persistence.Entities_DTO.UserEntity;
+import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllUsersResponse {
-    private List<UserEntity> allUserEntities;
+    private List<CustomerEntity> allUserEntities;
 }

@@ -1,15 +1,13 @@
 package s3.project.springbootbackend.persistence.Entities_DTO;
 
-import java.util.List;
+import lombok.Builder;
+import lombok.Data;
 
-//@Builder
-//@Getter
-//@Setter
-public class CustomerEntity extends UserEntity {
-    private OrderEntity currentOrderEntity;
-    private List<OrderEntity> pastOrderEntities;
+@Data
+@Builder
+public class CustomerEntity {
+    private Long id;
+    private String username;
+    private String password;
 
-    CustomerEntity(Long id, String username, String password) {
-        super(id, username, password);
-    }
 }
