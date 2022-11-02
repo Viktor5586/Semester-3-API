@@ -9,8 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface TruckRepository extends JpaRepository<TruckEntity, Long> {
-    void removeById(long truckId);
+    void removeByLicencePlate(String licencePlate);
     List<TruckEntity> getAllByLocation(String location);
     Optional<TruckEntity> getByLicencePlate(String licencePlate);
-    Optional<TruckEntity> getById(long id);
 }

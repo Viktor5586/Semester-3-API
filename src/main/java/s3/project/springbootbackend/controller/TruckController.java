@@ -6,9 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
 import s3.project.springbootbackend.business.useCases.Truck.GetAllTrucksUseCase;
+import s3.project.springbootbackend.business.useCases.Truck.GetTruckByIdUseCase;
 import s3.project.springbootbackend.business.useCases.Truck.GetTruckByLocationUseCase;
 import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
 import s3.project.springbootbackend.domain.Requests.GetAllTrucksPerLocationRequest;
+import s3.project.springbootbackend.domain.Requests.GetTruckByIdRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
 import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
 
@@ -21,6 +23,7 @@ import javax.validation.Valid;
 public class TruckController {
     private GetAllTrucksUseCase getAllTrucksUseCase;
     private GetTruckByLocationUseCase getTruckByLocationUseCase;
+    private GetTruckByIdUseCase getTruckByIdUseCase;
     private CreateTruckUseCase createTruckUseCase;
 
     @GetMapping()
@@ -29,11 +32,18 @@ public class TruckController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/location/{location}")
+    @GetMapping("/location")
     public ResponseEntity<?> getTrucksPerLocation(@RequestBody @Valid GetAllTrucksPerLocationRequest request){
         GetAllTrucksResponse response = getTruckByLocationUseCase.getTruckByLocation(request);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/id")
+    public ResponseEntity<?> getTruckById(@RequestBody @Valid GetTruckByIdRequest request){
+        GetAllTrucksResponse response = getTruckByIdUseCase.getTruckById(request);
+        return ResponseEntity.ok(response);
+    }
+
 
     @PostMapping("/add")
     public ResponseEntity<?> createTruck(@RequestBody @Valid CreateTruckRequest request){
