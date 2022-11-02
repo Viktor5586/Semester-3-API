@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
 import s3.project.springbootbackend.business.useCases.Truck.GetAllTrucksUseCase;
+import s3.project.springbootbackend.business.useCases.Truck.GetTruckByLocationUseCase;
 import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
+import s3.project.springbootbackend.domain.Requests.GetAllTrucksPerLocationRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
 import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
 
@@ -18,11 +20,18 @@ import javax.validation.Valid;
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class TruckController {
     private GetAllTrucksUseCase getAllTrucksUseCase;
+    private GetTruckByLocationUseCase getTruckByLocationUseCase;
     private CreateTruckUseCase createTruckUseCase;
 
     @GetMapping()
     public ResponseEntity<?> getAllTrucks(){
         GetAllTrucksResponse response = getAllTrucksUseCase.getAllTrucks();
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/location/{location}")
+    public ResponseEntity<?> getTrucksPerLocation(@RequestBody @Valid GetAllTrucksPerLocationRequest request){
+        GetAllTrucksResponse response = getTruckByLocationUseCase.getTruckByLocation(request);
         return ResponseEntity.ok(response);
     }
 

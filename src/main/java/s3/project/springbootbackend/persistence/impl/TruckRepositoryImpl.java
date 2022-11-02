@@ -19,16 +19,6 @@ public class TruckRepositoryImpl{
     }
 
     //@Override
-    public TruckEntity save(TruckEntity truck) {
-        if (truck.getId() == null){
-            truck.setId(NEXT_ID);
-            NEXT_ID++;
-            this.savedTrucks.add(truck);
-        }
-        return truck;
-    }
-
-    //@Override
     public void deleteById(long truckId) {
         this.savedTrucks.removeIf(truckEntity -> truckEntity.getId().equals(truckId));
     }

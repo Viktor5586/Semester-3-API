@@ -29,7 +29,7 @@ public class DumyDataInitializer {
     }
 
     //@EventListener(ApplicationReadyEvent.class)
-    public void initialTruckDummyData(){
+    /*public void initialTruckDummyData(){
         if (truckRepository.allTrucks().size() == 0){
             truckRepository.save(TruckEntity.builder().licencePlate("AAAA").location("Amsterdam").height(2).width(3).length(4)
                             .maxWeight(5).tankVolume(6).fuelConsumptionPerKm(7).build());
@@ -42,7 +42,7 @@ public class DumyDataInitializer {
             truckRepository.save(TruckEntity.builder().licencePlate("EEEE").location("Rotterdam").height(2).width(3).length(4)
                     .maxWeight(5).tankVolume(6).fuelConsumptionPerKm(7).build());
         }
-    }
+    }*/
 
     //@EventListener(ApplicationReadyEvent.class)
     public void initialCargoDummyData(){
