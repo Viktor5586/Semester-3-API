@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class TruckRepositoryImpl implements TruckRepository {
+public class TruckRepositoryImpl{
     private static long NEXT_ID = 1;
     private final List<TruckEntity> savedTrucks;
 
@@ -18,7 +18,7 @@ public class TruckRepositoryImpl implements TruckRepository {
         this.savedTrucks = new ArrayList<>();
     }
 
-    @Override
+    //@Override
     public TruckEntity save(TruckEntity truck) {
         if (truck.getId() == null){
             truck.setId(NEXT_ID);
@@ -28,22 +28,22 @@ public class TruckRepositoryImpl implements TruckRepository {
         return truck;
     }
 
-    @Override
+    //@Override
     public void deleteById(long truckId) {
         this.savedTrucks.removeIf(truckEntity -> truckEntity.getId().equals(truckId));
     }
 
-    @Override
+    //@Override
     public List<TruckEntity> allTrucks() {
         return Collections.unmodifiableList(this.savedTrucks);
     }
 
-    @Override //later will be implemented
+    //@Override //later will be implemented
     public List<TruckEntity> allTrucksCloseToLocation(String location) {
         return null;
     }
 
-    @Override
+    //@Override
     public Optional<TruckEntity> findById(long id) {
         return this.savedTrucks.stream()
                 .filter(truckEntity -> truckEntity.getId().equals(id))

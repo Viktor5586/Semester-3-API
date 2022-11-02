@@ -30,8 +30,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'ch.qos.logback:logback-classic:1.2.11'
 
-	implementation 'org.flywaydb:flyway-mysql:9.1.6'
+	//implementation 'org.flywaydb:flyway-mysql:9.1.6' 				have to add scripts otherwise it breaks
 	implementation 'mysql:mysql-connector-java:8.0.30'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

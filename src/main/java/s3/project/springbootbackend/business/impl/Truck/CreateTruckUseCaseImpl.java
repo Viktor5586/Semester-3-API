@@ -21,7 +21,7 @@ public class CreateTruckUseCaseImpl implements CreateTruckUseCase {
                 .build();
     }
 
-    public TruckEntity add(CreateTruckRequest request){
+    private TruckEntity add(CreateTruckRequest request){
         TruckEntity newTruck = TruckEntity.builder()
                 .licencePlate(request.getLicencePlate())
                 .location(request.getLocation())

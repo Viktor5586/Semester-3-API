@@ -18,7 +18,7 @@ public class DumyDataInitializer {
     private TruckRepository truckRepository;
     private CargoRepository cargoRepository;
 
-    @EventListener(ApplicationReadyEvent.class)
+    //@EventListener(ApplicationReadyEvent.class)
     public void initialUserDummyData(){
         if (customerRepository.findAll().size() == 0){
             customerRepository.save(CustomerEntity.builder().username("Gepi").password("asdfghjk").build());
@@ -28,7 +28,7 @@ public class DumyDataInitializer {
         }
     }
 
-    @EventListener(ApplicationReadyEvent.class)
+    //@EventListener(ApplicationReadyEvent.class)
     public void initialTruckDummyData(){
         if (truckRepository.allTrucks().size() == 0){
             truckRepository.save(TruckEntity.builder().licencePlate("AAAA").location("Amsterdam").height(2).width(3).length(4)
@@ -44,7 +44,7 @@ public class DumyDataInitializer {
         }
     }
 
-    @EventListener(ApplicationReadyEvent.class)
+    //@EventListener(ApplicationReadyEvent.class)
     public void initialCargoDummyData(){
         if (cargoRepository.allCargos().size() == 0){
             cargoRepository.create(CargoEntity.builder().height(1).width(2).length(3).weight(4).build());
