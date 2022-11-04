@@ -1,7 +1,6 @@
 package s3.project.springbootbackend.persistence.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
 
 import java.util.List;
