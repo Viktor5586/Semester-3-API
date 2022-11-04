@@ -3,6 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
 	id 'org.asciidoctor.convert' version '1.5.8'
 	id 'java'
+	id "org.sonarqube" version "3.4.0.2513"
 }
 
 group = 's3.project'
@@ -30,7 +31,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'ch.qos.logback:logback-classic:1.2.11'
 
-	//implementation 'org.flywaydb:flyway-mysql:9.1.6' 				have to add scripts otherwise it breaks
+	//implementation 'org.flywaydb:flyway-mysql:9.1.6' 				//have to add scripts otherwise it breaks
 	implementation 'mysql:mysql-connector-java:8.0.30'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
@@ -49,4 +50,11 @@ tasks.named('test') {
 tasks.named('asciidoctor') {
 	inputs.dir snippetsDir
 	dependsOn test
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "FindCargo_Ltd"
+		property "sonar.qualitygate.wait", true
+	}
 }
