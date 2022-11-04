@@ -22,8 +22,6 @@ public class GetTruckByIdUseCaseImpl implements GetTruckByIdUseCase {
     public GetAllTrucksResponse getTruckById(GetTruckByIdRequest request) {
         Optional<TruckEntity> truckEntity = truckRepository.findById(request.getId());
         GetAllTrucksResponse response = new GetAllTrucksResponse();
-        truckEntity.stream()
-                .filter(t -> t.equals(request.getId()));
         response.setAllTruckEntities(truckEntity.stream().toList());
         return response;
     }
