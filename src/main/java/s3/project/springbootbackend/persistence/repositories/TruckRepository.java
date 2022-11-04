@@ -7,7 +7,7 @@ import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+//@Repository
 public interface TruckRepository extends JpaRepository<TruckEntity, Long> {
     void removeByLicencePlate(String licencePlate);
     List<TruckEntity> getAllByLocation(String location);
