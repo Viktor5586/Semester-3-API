@@ -19,14 +19,14 @@ public class DumyDataInitializer {
     private CargoRepository cargoRepository;
 
     //@EventListener(ApplicationReadyEvent.class)
-    public void initialUserDummyData(){
+    /*public void initialUserDummyData(){
         if (customerRepository.findAll().size() == 0){
             customerRepository.save(CustomerEntity.builder().username("Gepi").password("asdfghjk").build());
             customerRepository.save(CustomerEntity.builder().username("Gogi").password("asdfghjk").build());
             customerRepository.save(CustomerEntity.builder().username("Ko").password("asdfghjk").build());
             customerRepository.save(CustomerEntity.builder().username("Ne").password("asdfghjk").build());
         }
-    }
+    }*/
 
     //@EventListener(ApplicationReadyEvent.class)
     /*public void initialTruckDummyData(){
@@ -45,14 +45,14 @@ public class DumyDataInitializer {
     }*/
 
     //@EventListener(ApplicationReadyEvent.class)
-    public void initialCargoDummyData(){
+    /*public void initialCargoDummyData(){
         if (cargoRepository.allCargos().size() == 0){
             cargoRepository.create(CargoEntity.builder().height(1).width(2).length(3).weight(4).build());
             cargoRepository.create(CargoEntity.builder().height(2).width(3).length(4).weight(5).build());
             cargoRepository.create(CargoEntity.builder().height(3).width(4).length(5).weight(6).build());
             cargoRepository.create(CargoEntity.builder().height(4).width(5).length(6).weight(7).build());
         }
-    }
+    }*/
 
 
 }
