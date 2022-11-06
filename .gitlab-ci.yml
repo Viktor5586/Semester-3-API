@@ -32,7 +32,7 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script:
-    - ./gradle sonarqube
+    - ./gradlew sonarqube
     - ./gradlew.bat --stop
   allow_failure: true
   only:
