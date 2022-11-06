@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
-public class CreateTruckRequest {
+public class    CreateTruckRequest {
 
     @NotBlank(message = "Field can't be blank")
     private final String licencePlate;

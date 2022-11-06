@@ -38,7 +38,7 @@ public class TruckController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/id")
+    @GetMapping("/id") //fix
     public ResponseEntity<?> getTruckById(@RequestBody @Valid GetTruckByIdRequest request){
         GetAllTrucksResponse response = getTruckByIdUseCase.getTruckById(request);
         return ResponseEntity.ok(response);
