@@ -49,7 +49,6 @@ public class CargoEntity {
     @OneToOne
     @JoinColumn(name = "customer_id")
     private CustomerEntity customerEntity;*/
-
     @NotBlank
     @Column(name = "startPoint")
     private String startPoint;
