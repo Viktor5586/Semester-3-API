@@ -26,8 +26,11 @@ public class CreateCargoUseCaseImp implements CreateCargoUseCase {
                 .width(request.getWidth())
                 .height(request.getHeight())
                 .weight(request.getWeight())
+                .startPoint(request.getStartPoint())
+                .endPoint(request.getEndPoint())
+                .date(request.getDate())
                 .build();
 
-        return repository.create(cargoEntity);
+        return repository.save(cargoEntity);
     }
 }

@@ -10,6 +10,13 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 public class CreateUserRequest {
+
+    @NotBlank(message = "Field can't be blank")
+    private String firstName;
+
+    @NotBlank(message = "Field can't be blank")
+    private String lastName;
+
     @NotBlank(message = "Field can't be blank")
     private String username;
     @NotBlank

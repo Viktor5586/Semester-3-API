@@ -5,5 +5,5 @@ import s3.project.springbootbackend.domain.Entities.Customer;
 import java.util.Optional;
 
 public interface GetCustomerUseCase {
-    public Optional<Customer> getUser(long id);
+    Optional<Customer> getUser(long id);
 }

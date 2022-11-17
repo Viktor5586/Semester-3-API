@@ -3,6 +3,11 @@ package s3.project.springbootbackend.domain.Entities;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
+import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
+
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -13,4 +18,11 @@ public class Cargo {
     private double width;
     private double length;
     private double weight;
+    private List<TruckEntity> truckEntity;
+    private CustomerEntity customerEntity;
+    private String startPoint;
+    private String endPoint;
+    private Date date;
+
+
 }

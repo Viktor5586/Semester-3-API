@@ -24,10 +24,12 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
 
     public CustomerEntity add(CreateUserRequest request){
 
-        CustomerEntity newUser = CustomerEntity.builder()
+        CustomerEntity customerEntity = CustomerEntity.builder()
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
                 .username(request.getUsername())
                 .password(request.getPassword())
                 .build();
-        return customerRepository.save(newUser);
+        return customerRepository.save(customerEntity);
     }
 }

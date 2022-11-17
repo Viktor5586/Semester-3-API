@@ -17,7 +17,7 @@ public class GetAllCargosUseCaseImpl implements GetAllCargosUseCase {
     private CargoRepository cargoRepository;
     @Override
     public GetAllCargosResponse getAllCargos() {
-        List<CargoEntity> cargoEntities = cargoRepository.allCargos();
+        List<CargoEntity> cargoEntities = cargoRepository.findAll();
         GetAllCargosResponse response = new GetAllCargosResponse();
         List<Cargo> cargos = cargoEntities
                 .stream()

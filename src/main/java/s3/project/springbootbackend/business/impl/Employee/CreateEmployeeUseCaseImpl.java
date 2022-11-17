@@ -11,7 +11,7 @@ import s3.project.springbootbackend.persistence.repositories.EmployeeRepository;
 @AllArgsConstructor
 public class CreateEmployeeUseCaseImpl implements CreateEmployeeUseCase {
 
-    EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
     @Override
     public CreateEmployeeResponse createEmployee(CreateEmployeeRequest createEmployeeRequest) {
         EmployeeEntity savedEmployee = add(createEmployeeRequest);

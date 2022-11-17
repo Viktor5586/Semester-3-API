@@ -19,13 +19,13 @@ public class GetAllCustomersUseCaseImpl implements GetAllCustomersUseCase {
 
     @Override
     public GetAllUsersResponse getAllUsers() {
-        List<CustomerEntity> users = customerRepository.findAll() ;
+        //List<CustomerEntity> users = customerRepository.findAll() ;
         GetAllUsersResponse response = new GetAllUsersResponse();
-        List<Customer> students = users
+        /*List<Customer> students = users
                 .stream()
                 .map(CustomerConverter::convert)
                 .toList();
-        response.setAllUserEntities(users);
+        response.setAllUserEntities(users);*/
 
         return response;
     }

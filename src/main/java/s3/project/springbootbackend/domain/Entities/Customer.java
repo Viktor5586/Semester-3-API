@@ -4,11 +4,12 @@ import lombok.*;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
-    private Long id;
-    private String username;
-    private String password;
+    private final Long id;
+    private final String firstName;
+    private final String lastName;
+    private final String username;
+    private final String password;
 
 }

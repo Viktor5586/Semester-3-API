@@ -4,5 +4,5 @@ import s3.project.springbootbackend.domain.Requests.CreateUserRequest;
 import s3.project.springbootbackend.domain.Responses.CreateUserResponse;
 
 public interface CreateCustomerUseCase {
-    public CreateUserResponse createUser(CreateUserRequest request);
+    CreateUserResponse createUser(CreateUserRequest request);
 }
