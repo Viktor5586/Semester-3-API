@@ -41,7 +41,6 @@ public class CustomerEntity {
     @Column(name = "password")
     private String password;
 
-
     //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     //@JoinColumn(name = "user_id")
 
