@@ -40,7 +40,6 @@ public class CargoEntity {
     @NotNull
     @Column(name = "cargo_weight")
     private double weight;
-
     /*@NotNull
     @OneToMany
     @JoinColumn(name = "truck_id")
