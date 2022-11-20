@@ -26,14 +26,14 @@ class GetCustomerUseCaseImplTest {
     GetCustomerUseCaseImpl getUserUseCase;
 
     @Test
-    void getEmployee(){
-        Optional<CustomerEntity> user1 = Optional.of(CustomerEntity.builder().id(1L).username("sth").password("sth").build());
+    void getCustomer(){
+        Optional<CustomerEntity> user1 = Optional.of(CustomerEntity.builder().id(1L).firstName("sth").lastName("sth2")/*username("sth").password("sth")*/.build());
 
         when(customerRepository.findById(1L))
                 .thenReturn(user1);
 
         Optional<Customer> actual = getUserUseCase.getUser(1L);
-        Optional<Customer> user2 = Optional.of(Customer.builder().id(1L).username("sth").password("sth").build());
+        Optional<Customer> user2 = Optional.of(Customer.builder().id(1L).firstName("sth").lastName("sth2")/*.username("sth").password("sth")*/.build());
         //Optional<User> user2 = Optional.of(User.builder().id(1L).username("sth").password("sth").build());
 
         assertEquals(user2, actual);
