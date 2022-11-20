@@ -25,19 +25,26 @@ ext {
 }
 
 dependencies {
-
+//implementation 'org.flywaydb:flyway-mysql:9.1.6' 				//have to add scripts otherwise it breaks
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'ch.qos.logback:logback-classic:1.2.11'
-
-	//implementation 'org.flywaydb:flyway-mysql:9.1.6' 				//have to add scripts otherwise it breaks
 	implementation 'mysql:mysql-connector-java:8.0.30'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+	implementation 'net.logstash.logback:logstash-logback-encoder:7.1.1'
+	implementation 'ch.qos.logback:logback-classic:1.2.11'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.7'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
 
 	testRuntimeOnly 'com.h2database:h2'
 }
@@ -45,6 +52,7 @@ dependencies {
 tasks.named('test') {
 	outputs.dir snippetsDir
 	useJUnitPlatform()
+	//finalizedBy jacocoTestReport
 }
 
 tasks.named('asciidoctor') {
@@ -58,4 +66,18 @@ sonarqube {
 		property "sonar.qualitygate.wait", true
 	}
 }
+
+/*jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.enabled true
+	}
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					"**//*configuration*//*"
+			])
+		}))
+	}
+}*/
 
