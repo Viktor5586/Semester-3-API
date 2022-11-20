@@ -6,7 +6,7 @@ import s3.project.springbootbackend.business.impl.Converters.CustomerConverter;
 import s3.project.springbootbackend.business.useCases.User.GetAllCustomersUseCase;
 import s3.project.springbootbackend.domain.Responses.GetAllUsersResponse;
 import s3.project.springbootbackend.domain.Entities.Customer;
-import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
+import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 
 import java.util.List;

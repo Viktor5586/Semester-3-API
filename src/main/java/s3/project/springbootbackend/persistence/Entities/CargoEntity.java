@@ -1,4 +1,4 @@
-package s3.project.springbootbackend.persistence.Entities_DTO;
+package s3.project.springbootbackend.persistence.Entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,8 +10,6 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @Entity
 @Table(name = "orders")

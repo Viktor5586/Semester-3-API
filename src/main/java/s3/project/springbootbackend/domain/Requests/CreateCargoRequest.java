@@ -1,14 +1,11 @@
 package s3.project.springbootbackend.domain.Requests;
 
 import lombok.Data;
-import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
-import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 @Data
 public class CreateCargoRequest {

@@ -1,7 +1,7 @@
 package s3.project.springbootbackend.business.impl.Converters;
 
 import s3.project.springbootbackend.domain.Entities.Cargo;
-import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
+import s3.project.springbootbackend.persistence.Entities.CargoEntity;
 
 public class CargoConverter {
     public static Cargo convert(CargoEntity cargo){

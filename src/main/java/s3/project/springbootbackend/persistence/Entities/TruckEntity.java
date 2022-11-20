@@ -1,11 +1,10 @@
-package s3.project.springbootbackend.persistence.Entities_DTO;
+package s3.project.springbootbackend.persistence.Entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

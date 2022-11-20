@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import s3.project.springbootbackend.persistence.Entities_DTO.EmployeeEntity;
+import s3.project.springbootbackend.persistence.Entities.EmployeeEntity;
 
 import java.util.List;
 

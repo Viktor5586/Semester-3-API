@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -20,6 +21,6 @@ public class CreateUserRequest {
     @NotBlank(message = "Field can't be blank")
     private String username;
     @NotBlank
-    //@Min(value = 6, message = "Password can't be less than 6 characters")
+    @Length(min = 6)
     private String password;
 }

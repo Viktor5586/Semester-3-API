@@ -3,8 +3,8 @@ package s3.project.springbootbackend.domain.Entities;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
-import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
+import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
+import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 
 import java.util.Date;
 import java.util.List;

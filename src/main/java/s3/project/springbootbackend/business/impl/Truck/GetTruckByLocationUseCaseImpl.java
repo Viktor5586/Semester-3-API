@@ -8,7 +8,7 @@ import s3.project.springbootbackend.business.useCases.Truck.GetTruckByLocationUs
 import s3.project.springbootbackend.domain.Entities.Truck;
 import s3.project.springbootbackend.domain.Requests.GetAllTrucksPerLocationRequest;
 import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
-import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
+import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 
 import java.util.List;

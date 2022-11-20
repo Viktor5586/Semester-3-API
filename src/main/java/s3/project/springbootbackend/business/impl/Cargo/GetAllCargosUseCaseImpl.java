@@ -7,7 +7,7 @@ import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
 import s3.project.springbootbackend.domain.Entities.Cargo;
 import s3.project.springbootbackend.domain.Responses.GetAllCargosResponse;
 import s3.project.springbootbackend.persistence.repositories.CargoRepository;
-import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
+import s3.project.springbootbackend.persistence.Entities.CargoEntity;
 
 import java.util.List;
 

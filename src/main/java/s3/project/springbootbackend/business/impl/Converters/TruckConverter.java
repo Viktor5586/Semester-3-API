@@ -1,7 +1,7 @@
 package s3.project.springbootbackend.business.impl.Converters;
 
 import s3.project.springbootbackend.domain.Entities.Truck;
-import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
+import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 
 public class TruckConverter {
 

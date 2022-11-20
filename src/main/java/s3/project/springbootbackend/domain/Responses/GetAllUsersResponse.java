@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
+import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.Employee.GetEmployeeByNameUseCase;
 import s3.project.springbootbackend.domain.Requests.GetEmployeeByNameRequest;
 import s3.project.springbootbackend.domain.Responses.GetAllEmployeesResponse;
-import s3.project.springbootbackend.persistence.Entities_DTO.EmployeeEntity;
+import s3.project.springbootbackend.persistence.Entities.EmployeeEntity;
 import s3.project.springbootbackend.persistence.repositories.EmployeeRepository;
 
 import java.util.Optional;

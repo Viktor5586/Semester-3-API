@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.Employee.CreateEmployeeUseCase;
 import s3.project.springbootbackend.domain.Requests.CreateEmployeeRequest;
 import s3.project.springbootbackend.domain.Responses.CreateEmployeeResponse;
-import s3.project.springbootbackend.persistence.Entities_DTO.EmployeeEntity;
+import s3.project.springbootbackend.persistence.Entities.EmployeeEntity;
 import s3.project.springbootbackend.persistence.repositories.EmployeeRepository;
 @Service
 @AllArgsConstructor

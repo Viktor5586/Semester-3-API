@@ -1,4 +1,4 @@
-package s3.project.springbootbackend.persistence.Entities_DTO;
+package s3.project.springbootbackend.persistence.Entities;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,18 +1,21 @@
-package s3.project.springbootbackend.persistence.Entities_DTO;
+package s3.project.springbootbackend.persistence.Entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "customer")
 @Builder
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeEntity {
+@NoArgsConstructor
+public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "id")
@@ -28,7 +31,7 @@ public class EmployeeEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @NotBlank
+    /*@NotBlank
     @Length(min = 2 ,max = 20)
     @Column(unique = true, name = "username")
     private String username;
@@ -37,5 +40,8 @@ public class EmployeeEntity {
     @Length(min = 2 ,max = 20)
     @Column(name = "password")
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")*/
 
 }

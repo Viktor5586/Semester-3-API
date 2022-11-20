@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
 import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
-import s3.project.springbootbackend.persistence.Entities_DTO.TruckEntity;
+import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 
 @Service

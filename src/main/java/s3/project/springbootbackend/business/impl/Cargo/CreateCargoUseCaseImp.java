@@ -6,7 +6,7 @@ import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
 import s3.project.springbootbackend.domain.Requests.CreateCargoRequest;
 import s3.project.springbootbackend.domain.Responses.CreateCargoResponse;
 import s3.project.springbootbackend.persistence.repositories.CargoRepository;
-import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
+import s3.project.springbootbackend.persistence.Entities.CargoEntity;
 
 @Service
 @AllArgsConstructor

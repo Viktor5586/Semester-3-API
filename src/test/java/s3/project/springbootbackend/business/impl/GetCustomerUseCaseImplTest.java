@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import s3.project.springbootbackend.business.impl.User.GetCustomerUseCaseImpl;
 import s3.project.springbootbackend.domain.Entities.Customer;
-import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
+import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 
 import java.util.Optional;

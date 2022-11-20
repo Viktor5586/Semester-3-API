@@ -1,7 +1,7 @@
 package s3.project.springbootbackend.persistence.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import s3.project.springbootbackend.persistence.Entities_DTO.EmployeeEntity;
+import s3.project.springbootbackend.persistence.Entities.EmployeeEntity;
 
 import java.util.Optional;
 

@@ -1,11 +1,7 @@
 package s3.project.springbootbackend.persistence.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import s3.project.springbootbackend.persistence.Entities_DTO.CargoEntity;
-import s3.project.springbootbackend.persistence.Entities_DTO.CustomerEntity;
-
-import java.util.List;
-import java.util.Optional;
+import s3.project.springbootbackend.persistence.Entities.CargoEntity;
 
 
 public interface CargoRepository extends JpaRepository<CargoEntity, Long> {
