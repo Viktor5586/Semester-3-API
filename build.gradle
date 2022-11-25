@@ -62,7 +62,7 @@ tasks.named('asciidoctor') {
 
 sonarqube {
 	properties {
-		property "sonar.projectKey", "FindCargo_Ltd"
+		property "sonar.projectKey", "springboot-backend"
 		property "sonar.qualitygate.wait", true
 	}
 }

@@ -15,6 +15,7 @@ import java.util.List;
 public class AccessToken {
     private String subject;
     private List<String> roles;
+    private String username;
     private Long customerId;
     private Long employeeId;
 
