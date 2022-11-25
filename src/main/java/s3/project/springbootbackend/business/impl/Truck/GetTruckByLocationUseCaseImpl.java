@@ -25,7 +25,7 @@ public class GetTruckByLocationUseCaseImpl implements GetTruckByLocationUseCase 
         GetAllTrucksResponse response = new GetAllTrucksResponse();
         List<Truck> trucks = truckEntities
                 .stream()
-                .filter(t -> t.equals(request.getLocation()))
+                //.filter(t -> t.equals(request.getLocation()))
                 .map(TruckConverter::convert)
                 .toList();
         response.setAllTruckEntities(truckEntities);
