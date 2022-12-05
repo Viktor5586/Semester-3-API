@@ -1,6 +1,8 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +16,13 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/cargos")
-@AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class CargoController {
-
+    @Autowired
     private CreateCargoUseCase createCargoUseCase;
+    @Autowired
     private GetAllCargosUseCase getAllCargosUseCase;
 
     @GetMapping
