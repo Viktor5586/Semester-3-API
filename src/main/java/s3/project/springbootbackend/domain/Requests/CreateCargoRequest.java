@@ -1,6 +1,7 @@
 package s3.project.springbootbackend.domain.Requests;
 
 import lombok.Data;
+import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
@@ -23,10 +24,12 @@ public class CreateCargoRequest {
     private double weight;
 
     /*@NotBlank(message = "Field can't be blank or 0")
-    private List<TruckEntity> truckEntity;
+    private List<TruckEntity> truckEntity;*/
 
-    @NotBlank(message = "Field can't be blank or 0")
-    private CustomerEntity customerEntity;*/
+//    @NotBlank(message = "Field can't be blank or 0")
+//    private CustomerEntity customerEntity;
+    @NotNull(message = "Field can't be blank or 0")
+    private Long customerId;
 
     @NotBlank(message = "Field can't be blank or 0")
     private String startPoint;

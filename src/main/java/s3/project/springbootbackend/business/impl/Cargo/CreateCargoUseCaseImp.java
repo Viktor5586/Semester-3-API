@@ -26,6 +26,7 @@ public class CreateCargoUseCaseImp implements CreateCargoUseCase {
                 .width(request.getWidth())
                 .height(request.getHeight())
                 .weight(request.getWeight())
+                .customerId(request.getCustomerId())
                 .startPoint(request.getStartPoint())
                 .endPoint(request.getEndPoint())
                 .date(request.getDate())

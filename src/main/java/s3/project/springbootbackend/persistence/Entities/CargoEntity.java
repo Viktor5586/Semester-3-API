@@ -41,12 +41,14 @@ public class CargoEntity {
     /*@NotNull
     @OneToMany
     @JoinColumn(name = "truck_id")
-    private List<TruckEntity> truckEntity;
+    private List<TruckEntity> truckEntity;*/
 
     @NotNull
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private CustomerEntity customerEntity;*/
+    @Column(name = "customer_id")
+    //@OneToOne
+    //@JoinColumn(name = "customer_id")
+    //private CustomerEntity customerEntity;
+    private Long customerId;
     @NotBlank
     @Column(name = "startPoint")
     private String startPoint;
