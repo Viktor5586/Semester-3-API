@@ -1,6 +1,7 @@
 package s3.project.springbootbackend.business.impl.User;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.User.CreateCustomerUseCase;
 import s3.project.springbootbackend.domain.Requests.CreateCustomerRequest;
@@ -21,6 +22,7 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
 
     private CustomerRepository customerRepository;
     private UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public CreateUserResponse createUser(CreateCustomerRequest request) {
@@ -46,10 +48,10 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
 
     private void saveNewUser(CustomerEntity customer, String password, String username){
         //encode password
-
+        String encodedPassword = passwordEncoder.encode(password);
         UserEntity newUser =UserEntity.builder()
                 .username(username)
-                .password(password)     //encoded password here
+                .password(encodedPassword)     //encoded password here
                 .customer(customer)
                 .build();
 
