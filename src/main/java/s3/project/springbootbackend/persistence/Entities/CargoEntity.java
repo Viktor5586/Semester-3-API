@@ -43,6 +43,9 @@ public class CargoEntity {
     @JoinColumn(name = "truck_id")
     private List<TruckEntity> truckEntity;*/
 
+    @Column(name = "approved")
+    private boolean approved;
+
     @NotNull
     @Column(name = "customer_id")
     //@OneToOne

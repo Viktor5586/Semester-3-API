@@ -18,7 +18,7 @@ public class Cargo {
     private double width;
     private double length;
     private double weight;
-    private List<TruckEntity> truckEntity;
+    private boolean approved;
     private CustomerEntity customerEntity;
     private String startPoint;
     private String endPoint;

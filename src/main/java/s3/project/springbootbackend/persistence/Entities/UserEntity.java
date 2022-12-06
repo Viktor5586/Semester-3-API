@@ -23,7 +23,7 @@ public class UserEntity {
     private Long id;
 
     @NotBlank
-    @Length(min = 2, max = 20)
+    @Length(min = 2, max = 40)
     @Column(name = "username")
     private String username;
 

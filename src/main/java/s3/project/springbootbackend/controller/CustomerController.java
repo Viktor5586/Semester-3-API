@@ -20,6 +20,7 @@ import javax.validation.Valid;
 @NoArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class CustomerController {
+    @Autowired
     private GetAllCustomersUseCase getAllCustomersUseCase;
     @Autowired
     private CreateCustomerUseCase createCustomerUseCase;
