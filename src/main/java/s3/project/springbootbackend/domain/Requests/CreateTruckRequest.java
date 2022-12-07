@@ -1,37 +1,41 @@
 package s3.project.springbootbackend.domain.Requests;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
-public class    CreateTruckRequest {
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreateTruckRequest {
 
     @NotBlank(message = "Field can't be blank")
-    private final String licencePlate;
+    private String licencePlate;
 
     @NotBlank(message = "Field can't be blank")
-    private final String location;
+    private String location;
 
     @NotNull(message = "Field can't be 0 or empty")
-    private final double height;
+    private double height;
 
     @NotNull(message = "Field can't be 0 or empty")
-    private final double width;
+    private double width;
 
     @NotNull(message = "Field can't be 0 or empty")
-    private final double length;
+    private double length;
 
     @NotNull(message = "Field can't be 0 or empty")
-    private final double maxWeight;
+    private double maxWeight;
 
     @NotNull(message = "Field can't be 0 or empty")
-    private final double tankVolume;
+    private double tankVolume;
 
     @NotNull(message = "Field can't be 0 or empty")
-    private final double fuelConsumptionPerKm;
+    private double fuelConsumptionPerKm;
 
 }

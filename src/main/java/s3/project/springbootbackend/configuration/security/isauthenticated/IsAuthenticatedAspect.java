@@ -20,10 +20,10 @@ import org.springframework.web.server.ResponseStatusException;
 @Order(value = Ordered.HIGHEST_PRECEDENCE)
 @Component
 public class IsAuthenticatedAspect {
-/*
+
     private final static Logger LOGGER = LoggerFactory.getLogger(IsAuthenticatedAspect.class);
 
-    @Pointcut("@annotation(fontys.sem3.school.configuration.security.isauthenticated.IsAuthenticated)")
+    /*@Pointcut("@annotation(fontys.sem3.school.configuration.security.isauthenticated.IsAuthenticated)")
     public void annotatedMethod() {
     }
 

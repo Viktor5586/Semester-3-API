@@ -1,6 +1,7 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,12 +9,14 @@ import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
 import s3.project.springbootbackend.business.useCases.Truck.GetAllTrucksUseCase;
 import s3.project.springbootbackend.business.useCases.Truck.GetTruckByIdUseCase;
 import s3.project.springbootbackend.business.useCases.Truck.GetTruckByLocationUseCase;
+import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
 import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
 import s3.project.springbootbackend.domain.Requests.GetAllTrucksPerLocationRequest;
 import s3.project.springbootbackend.domain.Requests.GetTruckByIdRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
 import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 @RestController
@@ -21,9 +24,13 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class TruckController {
+    @Autowired
     private GetAllTrucksUseCase getAllTrucksUseCase;
+    @Autowired
     private GetTruckByLocationUseCase getTruckByLocationUseCase;
+    @Autowired
     private GetTruckByIdUseCase getTruckByIdUseCase;
+    @Autowired
     private CreateTruckUseCase createTruckUseCase;
 
     @GetMapping()
@@ -44,7 +51,8 @@ public class TruckController {
         return ResponseEntity.ok(response);
     }
 
-
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("/add")
     public ResponseEntity<?> createTruck(@RequestBody @Valid CreateTruckRequest request){
         CreateTruckResponse response = createTruckUseCase.createTruck(request);
