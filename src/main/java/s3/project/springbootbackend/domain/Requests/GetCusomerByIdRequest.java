@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @Builder
 @AllArgsConstructor
-public class GetEmployeeByIdRequest {
+public class GetCusomerByIdRequest {
     @NotNull(message = "Field can't be blank or 0")
     private Long id;
 }

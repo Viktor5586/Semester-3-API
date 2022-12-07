@@ -24,13 +24,9 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class TruckController {
-    @Autowired
     private GetAllTrucksUseCase getAllTrucksUseCase;
-    @Autowired
     private GetTruckByLocationUseCase getTruckByLocationUseCase;
-    @Autowired
     private GetTruckByIdUseCase getTruckByIdUseCase;
-    @Autowired
     private CreateTruckUseCase createTruckUseCase;
 
     @GetMapping()

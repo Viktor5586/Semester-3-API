@@ -1,5 +1,6 @@
 package s3.project.springbootbackend.business.impl;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.exeptions.InvalidCredentialsException;
