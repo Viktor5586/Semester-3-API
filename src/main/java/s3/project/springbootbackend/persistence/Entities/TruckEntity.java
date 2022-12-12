@@ -4,12 +4,27 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.aspectj.bridge.Message;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+//@SqlResultSetMapping(name="sth", classes ={
+//        @ConstructorResult(targetClass = Message.class,
+//        columns = {
+//                @ColumnResult(name = "id"),
+//                @ColumnResult(name = "licence_plate"),
+//                @ColumnResult(name = "location"),
+//                @ColumnResult(name = "height"),
+//                @ColumnResult(name = "width"),
+//                @ColumnResult(name = "length"),
+//                @ColumnResult(name = "max_weight"),
+//                @ColumnResult(name = "tank_volume"),
+//                @ColumnResult(name = "fuel_consumprion_per_km"),
+//        })
+//})
 @Entity
 @Table(name = "truck")
 @Data

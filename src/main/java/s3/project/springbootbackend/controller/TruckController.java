@@ -5,14 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
-import s3.project.springbootbackend.business.useCases.Truck.GetAllTrucksUseCase;
-import s3.project.springbootbackend.business.useCases.Truck.GetTruckByIdUseCase;
-import s3.project.springbootbackend.business.useCases.Truck.GetTruckByLocationUseCase;
+import s3.project.springbootbackend.business.useCases.Truck.*;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
 import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
-import s3.project.springbootbackend.domain.Requests.GetAllTrucksPerLocationRequest;
-import s3.project.springbootbackend.domain.Requests.GetTruckByIdRequest;
+import s3.project.springbootbackend.domain.Requests.GetTrucksByAnyParameterRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
 import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
 
@@ -24,31 +20,54 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class TruckController {
-    private GetAllTrucksUseCase getAllTrucksUseCase;
-    private GetTruckByLocationUseCase getTruckByLocationUseCase;
-    private GetTruckByIdUseCase getTruckByIdUseCase;
+//    private GetAllTrucksUseCase getAllTrucksUseCase;
+    private GetTrucksByAnyParameterUseCase getTrucksByAnyParameterUseCase;
+//    private GetTruckByLocationUseCase getTruckByLocationUseCase;
+//    private GetTruckByIdUseCase getTruckByIdUseCase;
     private CreateTruckUseCase createTruckUseCase;
 
     @GetMapping()
-    public ResponseEntity<?> getAllTrucks(){
-        GetAllTrucksResponse response = getAllTrucksUseCase.getAllTrucks();
+    public ResponseEntity<?> getAllTrucks(@RequestParam(value = "id", required = false)Long id,
+                                          @RequestParam(value = "licencePlate",required = false)String licencePlate,
+                                          @RequestParam(value = "location", required = false)String location,
+                                          @RequestParam(value = "height",required = false)Double height,
+                                          @RequestParam(value = "width", required = false)Double width,
+                                          @RequestParam(value = "length",required = false)Double length,
+                                          @RequestParam(value = "maxWeight", required = false)Double maxWeight,
+                                          @RequestParam(value = "tankVolume",required = false)Double tankVolume,
+                                          @RequestParam(value = "fuelConsumptionPerKm",required = false)Double fuelConsumptionPerKm){
+
+        GetTrucksByAnyParameterRequest request = GetTrucksByAnyParameterRequest.builder()
+                .id(id)
+                .licencePlate(licencePlate)
+                .location(location)
+                .height(height)
+                .width(width)
+                .length(length)
+                .maxWeight(maxWeight)
+                .tankVolume(tankVolume)
+                .fuelConsumptionPerKm(fuelConsumptionPerKm).build();
+
+
+        GetAllTrucksResponse response = getTrucksByAnyParameterUseCase.getTrucksByAnyParameterUseCase(request);
+
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/location")
-    public ResponseEntity<?> getTrucksPerLocation(@RequestBody @Valid GetAllTrucksPerLocationRequest request){
-        GetAllTrucksResponse response = getTruckByLocationUseCase.getTruckByLocation(request);
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/location")
+//    public ResponseEntity<?> getTrucksPerLocation(@RequestBody @Valid GetAllTrucksPerLocationRequest request){
+//        GetAllTrucksResponse response = getTruckByLocationUseCase.getTruckByLocation(request);
+//        return ResponseEntity.ok(response);
+//    }
+//
+//    @GetMapping("/id") //fix
+//    public ResponseEntity<?> getTruckById(@RequestBody @Valid GetTruckByIdRequest request){
+//        GetAllTrucksResponse response = getTruckByIdUseCase.getTruckById(request);
+//        return ResponseEntity.ok(response);
+//    }
 
-    @GetMapping("/id") //fix
-    public ResponseEntity<?> getTruckById(@RequestBody @Valid GetTruckByIdRequest request){
-        GetAllTrucksResponse response = getTruckByIdUseCase.getTruckById(request);
-        return ResponseEntity.ok(response);
-    }
-
-    @IsAuthenticated
-    @RolesAllowed({"ROLE_EMPLOYEE"})
+//    @IsAuthenticated
+//    @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("/add")
     public ResponseEntity<?> createTruck(@RequestBody @Valid CreateTruckRequest request){
         CreateTruckResponse response = createTruckUseCase.createTruck(request);
