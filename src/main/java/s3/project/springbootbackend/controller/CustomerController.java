@@ -30,7 +30,7 @@ public class CustomerController {
     private GetAllCustomersUseCase getAllCustomersUseCase;
     @Autowired
     private GetCustomerUseCase getCustomerUseCase;
-    //@Autowired
+    @Autowired
     private CreateCustomerUseCase createCustomerUseCase;
     @Autowired
     private UpdateCustomerUseCase updateCustomerUseCase;

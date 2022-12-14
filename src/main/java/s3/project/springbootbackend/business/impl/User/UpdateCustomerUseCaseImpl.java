@@ -23,7 +23,8 @@ public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
     public ResponseEntity updateCustomer(UpdateCustomerRequest updateCustomerRequest) {
         try {
             if (getOldPasswordFromRequestAndCompareWithDbOne(updateCustomerRequest.getId(),updateCustomerRequest.getOldPassword())){
-                userRepository.updateUser(updateCustomerRequest.getUsername(), updateCustomerRequest.getNewPassword(), updateCustomerRequest.getId());
+                String encodedNewPassword = passwordEncoder.encode(updateCustomerRequest.getNewPassword());
+                userRepository.updateUser(updateCustomerRequest.getUsername(), encodedNewPassword, updateCustomerRequest.getId());
                 customerRepository.update(updateCustomerRequest.getFirstName(), updateCustomerRequest.getLastName(),updateCustomerRequest.getId());
                 return ResponseEntity.ok().build();
             }else {
@@ -39,8 +40,8 @@ public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
             UserEntity user = userRepository.findByCustomerIdOrEmployee_Id(id);
             if(user != null){
                 String password = user.getPassword();
-                //if(passwordEncoder.matches(oldPassword, String.valueOf(password)))return true;
-                if(oldPassword.equals(String.valueOf(password)))return true;
+                if(passwordEncoder.matches(oldPassword, String.valueOf(password)))return true;
+                //if(oldPassword.equals(String.valueOf(password)))return true;
                 return false;
             }else {
                 return false;

@@ -2,6 +2,8 @@ package s3.project.springbootbackend.business.impl;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.connector.Response;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.exeptions.InvalidCredentialsException;
 import s3.project.springbootbackend.business.useCases.AccessTokenEncoder;
@@ -18,27 +20,31 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LogInUseCaseImpl implements LogInUseCase {
     private final UserRepository userRepository;
-    //    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
     private final AccessTokenEncoder accessTokenEncoder;
     @Override
     public LogInResponse login(LogInRequest loginRequest) {
-        UserEntity user = userRepository.findByUsername(loginRequest.getUsername());
-        if (user == null) {
-            throw new InvalidCredentialsException();
+        try{
+            UserEntity user = userRepository.findByUsername(loginRequest.getUsername());
+            if (user == null) {
+                throw new InvalidCredentialsException();
+            }
+
+            if (!matchesPassword(loginRequest.getPassword(), user.getPassword())) {
+                throw new InvalidCredentialsException();
+            }
+
+            String accessToken = generateAccessToken(user);
+            return LogInResponse.builder().accessToken(accessToken).build();
+        }catch (InvalidCredentialsException exception){
+            throw (exception);
         }
 
-        /*if (!matchesPassword(loginRequest.getPassword(), user.getPassword())) {
-            throw new InvalidCredentialsException();
-        }*/
 
-        String accessToken = generateAccessToken(user);
-        return LogInResponse.builder().accessToken(accessToken).build();
     }
 
     private boolean matchesPassword(String rawPassword, String encodedPassword) {
-        // TODO: implement this part
-//        return passwordEncoder.matches(rawPassword, encodedPassword);
-        return false;
+        return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 
     private String generateAccessToken(UserEntity user) {
