@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.impl.Converters.CustomerConverter;
 import s3.project.springbootbackend.business.useCases.User.GetCustomerUseCase;
 import s3.project.springbootbackend.domain.Entities.Customer;
+import s3.project.springbootbackend.domain.Requests.GetCusomerByIdRequest;
+import s3.project.springbootbackend.domain.Responses.GetAllCustomersResponse;
+import s3.project.springbootbackend.domain.Responses.GetCustomerByIdResponse;
+import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 
 import java.util.Optional;

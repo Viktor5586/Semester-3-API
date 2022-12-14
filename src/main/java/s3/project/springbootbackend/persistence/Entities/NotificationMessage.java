@@ -7,5 +7,5 @@ public class NotificationMessage {
     private String id;
 //    private String from;
 //    private String to;
-    private String text = "Order has been send";
+    private String text;
 }

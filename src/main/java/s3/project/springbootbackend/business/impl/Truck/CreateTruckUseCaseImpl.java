@@ -17,10 +17,15 @@ public class CreateTruckUseCaseImpl implements CreateTruckUseCase {
 
     @Override
     public CreateTruckResponse createTruck(CreateTruckRequest request) {
-        TruckEntity savedTruck = add(request);
-        return CreateTruckResponse.builder()
-                .id(savedTruck.getId())
-                .build();
+        try{
+            TruckEntity savedTruck = add(request);
+            return CreateTruckResponse.builder()
+                    .id(savedTruck.getId())
+                    .build();
+        }catch (Exception exception){
+            throw (exception);
+        }
+
     }
 
     private TruckEntity add(CreateTruckRequest request){
