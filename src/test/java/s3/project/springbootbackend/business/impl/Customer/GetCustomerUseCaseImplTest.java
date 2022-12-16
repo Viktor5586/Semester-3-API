@@ -1,4 +1,4 @@
-package s3.project.springbootbackend.business.impl;
+package s3.project.springbootbackend.business.impl.Customer;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
