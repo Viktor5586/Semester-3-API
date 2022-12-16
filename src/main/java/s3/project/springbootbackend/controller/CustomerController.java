@@ -41,7 +41,11 @@ public class CustomerController {
             response = getAllCustomersUseCase.getAllUsers();
         }else {
             final Optional<Customer>customer = getCustomerUseCase.getUser(id);
-            return ResponseEntity.ok().body(customer.get());
+            if (customer.isPresent()){
+                return ResponseEntity.ok().body(customer.get());
+            }else{
+                return ResponseEntity.notFound().build();
+            }
         }
 
         return ResponseEntity.ok(response);
