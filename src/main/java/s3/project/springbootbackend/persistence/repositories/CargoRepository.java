@@ -11,5 +11,6 @@ public interface CargoRepository extends JpaRepository<CargoEntity, Long> {
     List<CargoEntity> allCargosPerUser(long id);
     Optional<CargoEntity> fingBySize(double height, double width, double length);
     Optional<CargoEntity> findById(long id);*/
+    void  deleteAllByCustomerId(long customerId);
 
 }

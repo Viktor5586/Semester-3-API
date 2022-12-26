@@ -73,6 +73,14 @@ jacocoTestReport {
 	reports {
 		xml.required = true
 	}
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					"java/s3/project/springbootbackend/configuration",
+					"java/s3/project/springbootbackend/domain",
+			])
+		}))
+	}
 }
 
 project.tasks["sonarqube"].dependsOn "jacocoTestReport"
@@ -81,17 +89,17 @@ tasks.named('test'){
 	useJUnitPlatform()
 }
 
-/*jacocoTestReport {
-	dependsOn test
-	reports {
-		xml.enabled true
-	}
-	afterEvaluate {
-		classDirectories.setFrom(files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: [
-					"**//*configuration*//*"
-			])
-		}))
-	}
-}*/
+//jacocoTestReport {
+//	dependsOn test
+//	reports {
+//		xml.enabled true
+//	}
+//	afterEvaluate {
+//		classDirectories.setFrom(files(classDirectories.files.collect {
+//			fileTree(dir: it, exclude: [
+//					"**//*configuration*//*"
+//			])
+//		}))
+//	}
+//}
 

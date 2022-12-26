@@ -5,11 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
+import s3.project.springbootbackend.configuration.Generated;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Data
+@Generated
 public class CreateUserRequest {
 
     @NotBlank(message = "Field can't be blank")

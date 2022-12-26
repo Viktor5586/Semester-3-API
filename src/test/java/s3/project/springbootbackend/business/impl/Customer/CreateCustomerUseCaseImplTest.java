@@ -16,8 +16,7 @@ import s3.project.springbootbackend.persistence.repositories.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class CreateCustomerUseCaseImplTest {
@@ -37,15 +36,15 @@ public class CreateCustomerUseCaseImplTest {
         CreateCustomerRequest request = CreateCustomerRequest.builder().firstName("Test").lastName("Testing")
                 .username("test@test.com").password("aaaa").build();
         CustomerEntity customer = CustomerEntity.builder().id(1L).firstName("Test").lastName("Testing").build();
-        when(repository.save(any())).thenReturn(customer);
-        when(passwordEncoder.encode(any())).thenReturn("encodedPassword");
+        when(repository.save(CustomerEntity.builder().firstName("Test").lastName("Testing").build())).thenReturn(customer);
+        when(passwordEncoder.encode(request.getPassword())).thenReturn("encodedPassword");
         when(userRepository.save(any())).thenReturn(null);
         //when(customerRepository.save(any())).thenReturn(null);
         CreateUserResponse actualResponse = createCustomerUseCase.createUser(request);
         CreateUserResponse expectedResponse = CreateUserResponse.builder().userId(1L).build();
 
         assertEquals(expectedResponse, actualResponse);
-//        verify(repository.save(any()));
+        verify(repository, times(1)).save(any());
 
 
 

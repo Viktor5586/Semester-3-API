@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.Truck.*;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
 import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
+import s3.project.springbootbackend.domain.Requests.DeleteTruckRequest;
 import s3.project.springbootbackend.domain.Requests.GetTrucksByAnyParameterRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
 import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
@@ -25,6 +26,7 @@ public class TruckController {
 //    private GetTruckByLocationUseCase getTruckByLocationUseCase;
 //    private GetTruckByIdUseCase getTruckByIdUseCase;
     private CreateTruckUseCase createTruckUseCase;
+    private DeleteTruckUseCase deleteTruckUseCase;
 
     @GetMapping()
     public ResponseEntity<?> getAllTrucks(@RequestParam(value = "id", required = false)Long id,
@@ -53,21 +55,17 @@ public class TruckController {
 
         return ResponseEntity.ok(response);
     }
-
-//    @GetMapping("/location")
-//    public ResponseEntity<?> getTrucksPerLocation(@RequestBody @Valid GetAllTrucksPerLocationRequest request){
-//        GetAllTrucksResponse response = getTruckByLocationUseCase.getTruckByLocation(request);
-//        return ResponseEntity.ok(response);
-//    }
-//
-//    @GetMapping("/id") //fix
-//    public ResponseEntity<?> getTruckById(@RequestBody @Valid GetTruckByIdRequest request){
-//        GetAllTrucksResponse response = getTruckByIdUseCase.getTruckById(request);
-//        return ResponseEntity.ok(response);
-//    }
-
 //    @IsAuthenticated
 //    @RolesAllowed({"ROLE_EMPLOYEE"})
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteTruck(@RequestBody @Valid DeleteTruckRequest request){
+        System.out.println(request);
+        deleteTruckUseCase.delete(request);
+        return ResponseEntity.ok().body("Truck has been deleted successfully");
+    }
+
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
     @PostMapping("/add")
     public ResponseEntity<?> createTruck(@RequestBody @Valid CreateTruckRequest request){
         CreateTruckResponse response = createTruckUseCase.createTruck(request);
