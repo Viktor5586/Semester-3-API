@@ -1,7 +1,6 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +20,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class TruckController {
-//    private GetAllTrucksUseCase getAllTrucksUseCase;
     private GetTrucksByAnyParameterUseCase getTrucksByAnyParameterUseCase;
-//    private GetTruckByLocationUseCase getTruckByLocationUseCase;
-//    private GetTruckByIdUseCase getTruckByIdUseCase;
     private CreateTruckUseCase createTruckUseCase;
     private DeleteTruckUseCase deleteTruckUseCase;
 
@@ -55,8 +51,8 @@ public class TruckController {
 
         return ResponseEntity.ok(response);
     }
-//    @IsAuthenticated
-//    @RolesAllowed({"ROLE_EMPLOYEE"})
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteTruck(@RequestBody @Valid DeleteTruckRequest request){
         System.out.println(request);

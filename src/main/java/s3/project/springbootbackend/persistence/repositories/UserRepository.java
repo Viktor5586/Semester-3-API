@@ -18,11 +18,12 @@ public interface UserRepository extends JpaRepository<UserEntity,Long> {
     void updateUser(@Param("username")String username,@Param("password")String password,@Param("id")Long id);
     @Query("select u from UserEntity as u where u.customer.id = :id or u.employee.id = :id")
     UserEntity findByCustomerIdOrEmployee_Id(@Param("id")Long userId);
-    @Cascade(CascadeType.DELETE)
-    @Query(value = "delete from UserRoleEntity u where u.user = :id",nativeQuery = true)
-    void deleteUserRole(@Param("id")long id);
-    @Modifying
-    @Query("delete FROM UserEntity as u WHERE ( u.customer.id = :id) or (u.employee.id = :id)")
-    void deleteByCustomer_IdOrEmployee_Id(@Param("id") long id);
+//    @Modifying
+//    @Transactional
+//    @Query(value = "delete from user_role where user_id = :id",nativeQuery = true)
+//    void deleteUserRole(@Param("id")long id);
+//    @Modifying
+//    @Query("delete FROM UserEntity as u WHERE ( u.customer.id = :id) or (u.employee.id = :id)")
+//    void deleteByCustomer_IdOrEmployee_Id(@Param("id") long id);
 
 }

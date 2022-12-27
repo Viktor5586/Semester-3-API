@@ -10,12 +10,14 @@ import s3.project.springbootbackend.business.useCases.Cargo.ApproveCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.DeleteCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
+import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
 import s3.project.springbootbackend.domain.Requests.ApproveCargoRequest;
 import s3.project.springbootbackend.domain.Requests.CreateCargoRequest;
 import s3.project.springbootbackend.domain.Requests.DeleteCargoRequest;
 import s3.project.springbootbackend.domain.Responses.CreateCargoResponse;
 import s3.project.springbootbackend.domain.Responses.GetAllCargosResponse;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 @RestController
@@ -32,6 +34,8 @@ public class CargoController {
     private DeleteCargoUseCase deleteCargoUseCase;
     @Autowired
     private ApproveCargoUseCase approveCargoUseCase;
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
 
     @GetMapping
     public ResponseEntity<?> getCargos(){
@@ -44,13 +48,15 @@ public class CargoController {
         CreateCargoResponse response = createCargoUseCase.createCargo(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
     @PutMapping()
     public ResponseEntity<?> updateCargo(@RequestBody @Valid ApproveCargoRequest request){
         approveCargoUseCase.approve(request);
         return ResponseEntity.ok().body("Order has been approved");
     }
-
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_EMPLOYEE"})
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteCargo(@RequestBody @Valid DeleteCargoRequest request){
         deleteCargoUseCase.delete(request);
