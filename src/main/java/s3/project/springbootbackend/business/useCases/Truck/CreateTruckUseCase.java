@@ -5,5 +5,5 @@ import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
 import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
 
 public interface CreateTruckUseCase {
-    public CreateTruckResponse createTruck(CreateTruckRequest request);
+    CreateTruckResponse createTruck(CreateTruckRequest request);
 }
