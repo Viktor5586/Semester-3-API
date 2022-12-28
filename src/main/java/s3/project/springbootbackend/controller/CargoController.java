@@ -36,13 +36,13 @@ public class CargoController {
     private ApproveCargoUseCase approveCargoUseCase;
     @IsAuthenticated
     @RolesAllowed({"ROLE_EMPLOYEE"})
-
     @GetMapping
     public ResponseEntity<?> getCargos(){
         GetAllCargosResponse response = getAllCargosUseCase.getAllCargos();
         return ResponseEntity.ok(response);
     }
-
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_CUSTOMER"})
     @PostMapping("/add")
     public ResponseEntity<?> createCargo(@RequestBody @Valid CreateCargoRequest request){
         CreateCargoResponse response = createCargoUseCase.createCargo(request);
