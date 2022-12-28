@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.Employee.*;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
-import s3.project.springbootbackend.domain.Requests.CreateEmployeeRequest;
-import s3.project.springbootbackend.domain.Requests.DeleteEmployeeByIdRequest;
-import s3.project.springbootbackend.domain.Responses.CreateEmployeeResponse;
-import s3.project.springbootbackend.domain.Responses.GetAllEmployeesResponse;
+import s3.project.springbootbackend.domain.Requests.Employee.CreateEmployeeRequest;
+import s3.project.springbootbackend.domain.Requests.Employee.DeleteEmployeeByIdRequest;
+import s3.project.springbootbackend.domain.Responses.Employee.CreateEmployeeResponse;
+import s3.project.springbootbackend.domain.Responses.Employee.GetAllEmployeesResponse;
 
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;

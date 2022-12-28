@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import s3.project.springbootbackend.business.exeptions.InvalidAccessTokenException;
-import s3.project.springbootbackend.business.useCases.AccessTokenDecoder;
+import s3.project.springbootbackend.business.useCases.LogIn.AccessTokenDecoder;
 import s3.project.springbootbackend.domain.AccessToken;
 
 import javax.servlet.FilterChain;

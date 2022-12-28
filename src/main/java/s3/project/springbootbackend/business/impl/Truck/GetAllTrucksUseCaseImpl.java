@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.impl.Converters.TruckConverter;
 import s3.project.springbootbackend.business.useCases.Truck.GetAllTrucksUseCase;
-import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
+import s3.project.springbootbackend.domain.Responses.Truck.GetAllTrucksResponse;
 import s3.project.springbootbackend.domain.Entities.Truck;
 import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
+import s3.project.springbootbackend.domain.Responses.Truck.GetAllTrucksResponse;
 import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 

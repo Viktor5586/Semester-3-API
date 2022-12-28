@@ -3,8 +3,8 @@ package s3.project.springbootbackend.business.impl.Cargo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
-import s3.project.springbootbackend.domain.Requests.CreateCargoRequest;
-import s3.project.springbootbackend.domain.Responses.CreateCargoResponse;
+import s3.project.springbootbackend.domain.Requests.Cargo.CreateCargoRequest;
+import s3.project.springbootbackend.domain.Responses.Cargo.CreateCargoResponse;
 import s3.project.springbootbackend.persistence.repositories.CargoRepository;
 import s3.project.springbootbackend.persistence.Entities.CargoEntity;
 

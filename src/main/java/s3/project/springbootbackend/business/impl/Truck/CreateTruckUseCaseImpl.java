@@ -1,11 +1,10 @@
 package s3.project.springbootbackend.business.impl.Truck;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.Truck.CreateTruckUseCase;
-import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
-import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
+import s3.project.springbootbackend.domain.Requests.Truck.CreateTruckRequest;
+import s3.project.springbootbackend.domain.Responses.Truck.CreateTruckResponse;
 import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 

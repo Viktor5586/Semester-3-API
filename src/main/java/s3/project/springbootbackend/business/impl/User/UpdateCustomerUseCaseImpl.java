@@ -1,17 +1,14 @@
 package s3.project.springbootbackend.business.impl.User;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.useCases.User.UpdateCustomerUseCase;
-import s3.project.springbootbackend.domain.Requests.UpdateCustomerRequest;
+import s3.project.springbootbackend.domain.Requests.Customer.UpdateCustomerRequest;
 import s3.project.springbootbackend.persistence.Entities.UserEntity;
 import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 import s3.project.springbootbackend.persistence.repositories.UserRepository;
-
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

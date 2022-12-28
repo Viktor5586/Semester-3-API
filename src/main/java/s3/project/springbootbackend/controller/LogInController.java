@@ -3,8 +3,8 @@ package s3.project.springbootbackend.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import s3.project.springbootbackend.business.useCases.LogInUseCase;
-import s3.project.springbootbackend.domain.Requests.LogInRequest;
+import s3.project.springbootbackend.business.useCases.LogIn.LogInUseCase;
+import s3.project.springbootbackend.domain.Requests.LogIn.LogInRequest;
 import s3.project.springbootbackend.domain.Responses.LogInResponse;
 
 import javax.validation.Valid;

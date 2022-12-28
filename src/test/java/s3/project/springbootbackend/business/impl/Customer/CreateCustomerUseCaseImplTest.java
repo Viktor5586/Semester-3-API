@@ -7,9 +7,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import s3.project.springbootbackend.business.impl.User.CreateCustomerUseCaseImpl;
-import s3.project.springbootbackend.domain.Requests.CreateCustomerRequest;
-import s3.project.springbootbackend.domain.Responses.CreateCustomerResponse;
-import s3.project.springbootbackend.domain.Responses.CreateUserResponse;
+import s3.project.springbootbackend.domain.Requests.Customer.CreateCustomerRequest;
+import s3.project.springbootbackend.domain.Responses.Customer.CreateCustomerResponse;
 import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 import s3.project.springbootbackend.persistence.repositories.UserRepository;
@@ -40,8 +39,8 @@ public class CreateCustomerUseCaseImplTest {
         when(passwordEncoder.encode(request.getPassword())).thenReturn("encodedPassword");
         when(userRepository.save(any())).thenReturn(null);
         //when(customerRepository.save(any())).thenReturn(null);
-        CreateUserResponse actualResponse = createCustomerUseCase.createUser(request);
-        CreateUserResponse expectedResponse = CreateUserResponse.builder().userId(1L).build();
+        CreateCustomerResponse actualResponse = createCustomerUseCase.createUser(request);
+        CreateCustomerResponse expectedResponse = CreateCustomerResponse.builder().userId(1L).build();
 
         assertEquals(expectedResponse, actualResponse);
         verify(repository, times(1)).save(any());

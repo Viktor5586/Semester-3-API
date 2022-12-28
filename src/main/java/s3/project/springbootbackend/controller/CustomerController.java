@@ -8,12 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.User.*;
 import s3.project.springbootbackend.domain.Entities.Customer;
-import s3.project.springbootbackend.domain.Requests.CreateCustomerRequest;
-import s3.project.springbootbackend.domain.Requests.DeleteCustomerByIdRequest;
-import s3.project.springbootbackend.domain.Requests.UpdateCustomerRequest;
-import s3.project.springbootbackend.domain.Responses.CreateUserResponse;
-import s3.project.springbootbackend.domain.Responses.GetAllUsersResponse;
-import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
+import s3.project.springbootbackend.domain.Requests.Customer.CreateCustomerRequest;
+import s3.project.springbootbackend.domain.Requests.Customer.DeleteCustomerByIdRequest;
+import s3.project.springbootbackend.domain.Requests.Customer.UpdateCustomerRequest;
+import s3.project.springbootbackend.domain.Responses.Customer.CreateCustomerResponse;
+import s3.project.springbootbackend.domain.Responses.Customer.GetAllUsersResponse;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -59,7 +58,7 @@ public class CustomerController {
 
     @PostMapping("/add")
     public ResponseEntity<?> createCustomer(@RequestBody @Valid CreateCustomerRequest request) {
-        CreateUserResponse response = createCustomerUseCase.createUser(request);
+        CreateCustomerResponse response = createCustomerUseCase.createUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

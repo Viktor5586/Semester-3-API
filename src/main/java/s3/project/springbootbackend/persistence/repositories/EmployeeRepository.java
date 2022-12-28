@@ -6,5 +6,5 @@ import s3.project.springbootbackend.persistence.Entities.EmployeeEntity;
 import java.util.Optional;
 
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
-    Optional<EmployeeEntity> getEmployeeEntitiesByFirstNameOrLastName(Optional<String> firstName, Optional<String> lastName);
+//    Optional<EmployeeEntity> getEmployeeEntitiesByFirstNameOrLastName(Optional<String> firstName, Optional<String> lastName);
 }

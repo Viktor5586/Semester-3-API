@@ -6,11 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.Truck.*;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
-import s3.project.springbootbackend.domain.Requests.CreateTruckRequest;
-import s3.project.springbootbackend.domain.Requests.DeleteTruckRequest;
-import s3.project.springbootbackend.domain.Requests.GetTrucksByAnyParameterRequest;
-import s3.project.springbootbackend.domain.Responses.CreateTruckResponse;
-import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
+import s3.project.springbootbackend.domain.Requests.Truck.CreateTruckRequest;
+import s3.project.springbootbackend.domain.Requests.Truck.DeleteTruckRequest;
+import s3.project.springbootbackend.domain.Requests.Truck.GetTrucksByAnyParameterRequest;
+import s3.project.springbootbackend.domain.Responses.Truck.CreateTruckResponse;
+import s3.project.springbootbackend.domain.Responses.Truck.GetAllTrucksResponse;
 
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;

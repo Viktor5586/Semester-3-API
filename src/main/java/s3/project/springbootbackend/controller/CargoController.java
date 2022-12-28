@@ -11,11 +11,11 @@ import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.DeleteCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
-import s3.project.springbootbackend.domain.Requests.ApproveCargoRequest;
-import s3.project.springbootbackend.domain.Requests.CreateCargoRequest;
-import s3.project.springbootbackend.domain.Requests.DeleteCargoRequest;
-import s3.project.springbootbackend.domain.Responses.CreateCargoResponse;
-import s3.project.springbootbackend.domain.Responses.GetAllCargosResponse;
+import s3.project.springbootbackend.domain.Requests.Cargo.ApproveCargoRequest;
+import s3.project.springbootbackend.domain.Requests.Cargo.CreateCargoRequest;
+import s3.project.springbootbackend.domain.Requests.Cargo.DeleteCargoRequest;
+import s3.project.springbootbackend.domain.Responses.Cargo.CreateCargoResponse;
+import s3.project.springbootbackend.domain.Responses.Cargo.GetAllCargosResponse;
 
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;

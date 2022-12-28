@@ -4,12 +4,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.impl.Converters.FromQueryToEntity;
 import s3.project.springbootbackend.business.useCases.Truck.GetTrucksByAnyParameterUseCase;
-import s3.project.springbootbackend.domain.Requests.GetTrucksByAnyParameterRequest;
-import s3.project.springbootbackend.domain.Responses.GetAllTrucksResponse;
+import s3.project.springbootbackend.domain.Requests.Truck.GetTrucksByAnyParameterRequest;
+import s3.project.springbootbackend.domain.Responses.Truck.GetAllTrucksResponse;
 import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 @Service
 @AllArgsConstructor

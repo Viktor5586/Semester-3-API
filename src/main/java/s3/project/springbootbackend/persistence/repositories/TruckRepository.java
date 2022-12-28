@@ -30,7 +30,5 @@ public interface TruckRepository extends JpaRepository<TruckEntity, Long> {
                                               @Param("maxWeight")Double maxWeight,
                                               @Param("tankVolume")Double tankVolume,
                                               @Param("fuelConsumptionPerKm")Double fuelConsumptionPerKm);
-    //List<TruckEntity> getTruckEntitiesByIdAndLocation()
-
-    //List<TruckEntity> findByIdAndLicencePlate
+//    int countAll();
     }

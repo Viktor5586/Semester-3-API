@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import s3.project.springbootbackend.business.impl.Converters.CargoConverter;
 import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
 import s3.project.springbootbackend.domain.Entities.Cargo;
-import s3.project.springbootbackend.domain.Responses.GetAllCargosResponse;
+import s3.project.springbootbackend.domain.Responses.Cargo.GetAllCargosResponse;
 import s3.project.springbootbackend.persistence.repositories.CargoRepository;
 import s3.project.springbootbackend.persistence.Entities.CargoEntity;
 
