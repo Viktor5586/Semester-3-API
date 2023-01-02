@@ -7,7 +7,7 @@ import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 
 @Service
 @AllArgsConstructor
-public class GetStatisticsUseCaseImpl implements GetTruckStatisticsUseCase {
+public class GetTruckStatisticsUseCaseImpl implements GetTruckStatisticsUseCase {
     private TruckRepository truckRepository;
     @Override
     public long getTrucksStatistics() {

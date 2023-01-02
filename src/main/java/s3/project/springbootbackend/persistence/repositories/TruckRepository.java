@@ -6,9 +6,7 @@ import org.springframework.data.repository.query.Param;
 import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 
 import java.util.List;
-import java.util.Optional;
 
-//@Repository
 public interface TruckRepository extends JpaRepository<TruckEntity, Long> {
     List<TruckEntity> getAllByLocation(String location);
     @Query("select tr.id, tr.licencePlate, tr.location, tr.height, tr.length, tr.width, tr.maxWeight, tr.tankVolume, tr.fuelConsumptionPerKm from TruckEntity as tr " +
@@ -30,5 +28,4 @@ public interface TruckRepository extends JpaRepository<TruckEntity, Long> {
                                               @Param("maxWeight")Double maxWeight,
                                               @Param("tankVolume")Double tankVolume,
                                               @Param("fuelConsumptionPerKm")Double fuelConsumptionPerKm);
-//    int countAll();
     }

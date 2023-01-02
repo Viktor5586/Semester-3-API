@@ -10,7 +10,7 @@ import s3.project.springbootbackend.persistence.repositories.CargoRepository;
 public class GetApprovedOrdersUseCaseImpl implements GetApprovedOrdersUseCase {
     private CargoRepository cargoRepository;
     @Override
-    public int getAllApprovedOrders(boolean approved) {
+    public long getAllApprovedOrders(boolean approved) {
         return cargoRepository.countByApproved(approved);
     }
 }
