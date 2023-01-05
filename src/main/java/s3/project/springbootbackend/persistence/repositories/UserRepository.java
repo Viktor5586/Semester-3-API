@@ -14,8 +14,8 @@ public interface UserRepository extends JpaRepository<UserEntity,Long> {
     @Transactional
     @Query("update UserEntity as u set u.username = :username , u.password = :password where u.customer.id = :id")
     void updateUser(@Param("username")String username,@Param("password")String password,@Param("id")Long id);
-    @Query("select u from UserEntity as u where u.customer.id = :id or u.employee.id = :id")
-    UserEntity findByCustomerIdOrEmployee_Id(@Param("id")Long userId);
+    @Query("select u from UserEntity as u where u.customer.id = :id")
+    UserEntity findByCustomerId(@Param("id")Long userId);
 //    int countAllByUserRoles(RoleEnum role);
 
 }

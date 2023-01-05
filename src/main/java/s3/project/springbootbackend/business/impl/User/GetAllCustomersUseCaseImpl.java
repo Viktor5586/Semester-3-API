@@ -18,7 +18,7 @@ public class GetAllCustomersUseCaseImpl implements GetAllCustomersUseCase {
     private CustomerRepository customerRepository;
 
     @Override
-    public GetAllUsersResponse getAllUsers() {
+        public GetAllUsersResponse getAllUsers() {
         List<CustomerEntity> users = customerRepository.findAll() ;
         GetAllUsersResponse response = new GetAllUsersResponse();
         List<Customer> students = users

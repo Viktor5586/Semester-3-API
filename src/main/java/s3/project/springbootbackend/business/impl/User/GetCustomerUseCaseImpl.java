@@ -27,7 +27,7 @@ public class GetCustomerUseCaseImpl implements GetCustomerUseCase {
                 }
             }
         }catch (Exception e){
-            throw new RuntimeException("Something went wrong");
+            throw new UnauthorizedDataAccessException("CUSTOMER_ID_NOT_FROM_LOGGED_IN_USER");
         }
 
         return customerRepository.findById(id).map(CustomerConverter::convert);

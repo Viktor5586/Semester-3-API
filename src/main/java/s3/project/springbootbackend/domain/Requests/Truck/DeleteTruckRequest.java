@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Generated
+@Builder
 public class DeleteTruckRequest {
     @NotNull(message = "Field can't be blank or 0")
     private long truckId;
