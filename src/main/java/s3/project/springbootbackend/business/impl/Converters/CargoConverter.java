@@ -11,6 +11,11 @@ public class CargoConverter {
                 .length(cargo.getLength())
                 .width(cargo.getWidth())
                 .weight(cargo.getWeight())
+                .approved(cargo.isApproved())
+                .customerId(cargo.getCustomerId())
+                .startPoint(cargo.getStartPoint())
+                .endPoint(cargo.getEndPoint())
+                .date(cargo.getDate())
                 .build();
     }
 }

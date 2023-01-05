@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import s3.project.springbootbackend.configuration.Generated;
-import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
-import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Builder
@@ -21,7 +18,7 @@ public class Cargo {
     private double length;
     private double weight;
     private boolean approved;
-    private CustomerEntity customerEntity;
+    private long customerId;
     private String startPoint;
     private String endPoint;
     private Date date;
