@@ -11,8 +11,8 @@ import s3.project.springbootbackend.persistence.Entities.TruckEntity;
 import s3.project.springbootbackend.persistence.repositories.TruckRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 @ExtendWith(MockitoExtension.class)
 class CreateTruckUseCaseImplTest {
 
@@ -21,7 +21,7 @@ class CreateTruckUseCaseImplTest {
     @InjectMocks
     CreateTruckUseCaseImpl useCase;
     @Test
-    void createTruck() {
+    void createTruck_successful() {
         TruckEntity truck = TruckEntity.builder().licencePlate("BBBB").location("Ultrecht").height(2).width(3).length(4)
                 .maxWeight(5).tankVolume(6).fuelConsumptionPerKm(7).build();
         TruckEntity truck1 = TruckEntity.builder().licencePlate("BBBB").location("Ultrecht").height(2).width(3).length(4)
@@ -34,6 +34,6 @@ class CreateTruckUseCaseImplTest {
         CreateTruckResponse expected = CreateTruckResponse.builder().id(truck.getId()).build();
 
         assertEquals(expected, result);
-
+        verify(truckRepository,times(1)).save(truck);
     }
 }

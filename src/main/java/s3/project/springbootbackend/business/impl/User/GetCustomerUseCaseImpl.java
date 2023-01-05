@@ -22,7 +22,7 @@ public class GetCustomerUseCaseImpl implements GetCustomerUseCase {
     public Optional<Customer> getUser(long id) {
         try {
             if (!requestAccessToken.hasRole(RoleEnum.EMPLOYEE.name())) {
-                if (requestAccessToken.getCustomerId() != requestAccessToken.getCustomerId()){
+                if (! (requestAccessToken.getCustomerId().equals(requestAccessToken.getCustomerId()))){
                     throw new UnauthorizedDataAccessException("CUSTOMER_ID_NOT_FROM_LOGGED_IN_USER");
                 }
             }
