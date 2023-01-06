@@ -28,14 +28,4 @@ public class EmployeeEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    /*@NotBlank
-    @Length(min = 2 ,max = 20)
-    @Column(unique = true, name = "username")
-    private String username;
-
-    @NotBlank
-    @Length(min = 2 ,max = 20)
-    @Column(name = "password")
-    private String password;*/
-
 }
