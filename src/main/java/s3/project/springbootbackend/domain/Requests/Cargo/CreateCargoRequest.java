@@ -1,8 +1,8 @@
 package s3.project.springbootbackend.domain.Requests.Cargo;
 
+import lombok.Builder;
 import lombok.Data;
 import s3.project.springbootbackend.configuration.Generated;
-import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Data
 @Generated
+@Builder
 public class CreateCargoRequest {
 
     @NotNull(message = "Field can't be blank or 0")
