@@ -11,6 +11,7 @@ public class GetCountOfOrdersAfterCurrentDateUseCaseImpl implements GetCountOfOr
     CargoRepository cargoRepository;
     @Override
     public long getOrdersCount(Date date) {
+
         return cargoRepository.countAllByDateAfter(date);
     }
 }

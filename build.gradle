@@ -89,17 +89,3 @@ tasks.named('test'){
 	useJUnitPlatform()
 }
 
-//jacocoTestReport {
-//	dependsOn test
-//	reports {
-//		xml.enabled true
-//	}
-//	afterEvaluate {
-//		classDirectories.setFrom(files(classDirectories.files.collect {
-//			fileTree(dir: it, exclude: [
-//					"**//*configuration*//*"
-//			])
-//		}))
-//	}
-//}
-

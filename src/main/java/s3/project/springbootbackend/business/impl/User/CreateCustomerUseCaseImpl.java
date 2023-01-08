@@ -3,7 +3,9 @@ package s3.project.springbootbackend.business.impl.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import s3.project.springbootbackend.business.exeptions.InvalidDataInRequest;
 import s3.project.springbootbackend.business.useCases.User.CreateCustomerUseCase;
+import s3.project.springbootbackend.business.validations.ValidateCustomer;
 import s3.project.springbootbackend.domain.Requests.Customer.CreateCustomerRequest;
 import s3.project.springbootbackend.domain.Responses.Customer.CreateCustomerResponse;
 import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
@@ -35,17 +37,20 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
     }
 
     private CustomerEntity saveNewCustomer(CreateCustomerRequest request){
-
-        CustomerEntity customerEntity = CustomerEntity.builder()
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
-                //.username(request.getUsername())
-                //.password(request.getPassword())
-                .build();
-        return customerRepository.save(customerEntity);
+        ValidateCustomer.validate(request.getPassword());
+        if(! userRepository.existsDistinctByUsername(request.getUsername())) {
+            CustomerEntity customerEntity = CustomerEntity.builder()
+                    .firstName(request.getFirstName())
+                    .lastName(request.getLastName())
+                    .build();
+            return customerRepository.save(customerEntity);
+        }else {
+            throw new InvalidDataInRequest("EMAIL_ALREADY_EXISTS");
+        }
     }
 
     private void saveNewUser(CustomerEntity customer, String password, String username){
+
         //encode password
         String encodedPassword = passwordEncoder.encode(password);
         UserEntity newUser =UserEntity.builder()
@@ -60,5 +65,6 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
                         .role(RoleEnum.CUSTOMER)
                         .build()));
                 userRepository.save(newUser);
+
     }
 }
