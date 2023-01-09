@@ -8,6 +8,7 @@ import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 
 @Component
 @AllArgsConstructor
+@Generated
 public class DumyDataInitializer {
     private CustomerRepository customerRepository;
     private TruckRepository truckRepository;

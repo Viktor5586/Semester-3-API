@@ -19,8 +19,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class CreateCustomerUseCaseImplTest {
-//    @Mock
-//    private CustomerRepository customerRepository;
     @Mock
     private UserRepository userRepository;
     @Mock

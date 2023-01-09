@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import s3.project.springbootbackend.business.exeptions.InvalidAccessTokenException;
 import s3.project.springbootbackend.business.useCases.LogIn.AccessTokenDecoder;
+import s3.project.springbootbackend.configuration.Generated;
 import s3.project.springbootbackend.domain.AccessToken;
 
 import javax.servlet.FilterChain;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
+@Generated
 public class AuthenticationRequestFilter extends OncePerRequestFilter {
 
     private final static String SPRING_SECURITY_ROLE_PREFIX = "ROLE_";

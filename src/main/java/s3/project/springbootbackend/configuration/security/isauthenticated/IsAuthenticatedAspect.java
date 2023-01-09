@@ -15,36 +15,38 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
+import s3.project.springbootbackend.configuration.Generated;
 
 @Aspect
 @Order(value = Ordered.HIGHEST_PRECEDENCE)
 @Component
+@Generated
 public class IsAuthenticatedAspect {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(IsAuthenticatedAspect.class);
 
-    /*@Pointcut("@annotation(fontys.sem3.school.configuration.security.isauthenticated.IsAuthenticated)")
-    public void annotatedMethod() {
-    }
-
-    @Pointcut("@within(fontys.sem3.school.configuration.security.isauthenticated.IsAuthenticated)")
-    public void annotatedClass() {
-    }
-
-    @Around("(annotatedMethod() || annotatedClass()) && execution(* *(..))")
-    public Object interceptMethod(final ProceedingJoinPoint interceptedMethod) throws Throwable {
-        final SecurityContext context = SecurityContextHolder.getContext();
-        if (context == null) {
-            LOGGER.error("No security context found. No user authenticated.");
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
-        }
-
-        final Authentication authentication = context.getAuthentication();
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            LOGGER.error("Authentication token null. No user authenticated.");
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
-        }
-
-        return interceptedMethod.proceed();
-    }*/
+//    @Pointcut("@annotation(fontys.sem3.school.configuration.security.isauthenticated.IsAuthenticated)")
+//    public void annotatedMethod() {
+//    }
+//
+//    @Pointcut("@within(fontys.sem3.school.configuration.security.isauthenticated.IsAuthenticated)")
+//    public void annotatedClass() {
+//    }
+//
+//    @Around("(annotatedMethod() || annotatedClass()) && execution(* *(..))")
+//    public Object interceptMethod(final ProceedingJoinPoint interceptedMethod) throws Throwable {
+//        final SecurityContext context = SecurityContextHolder.getContext();
+//        if (context == null) {
+//            LOGGER.error("No security context found. No user authenticated.");
+//            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+//        }
+//
+//        final Authentication authentication = context.getAuthentication();
+//        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+//            LOGGER.error("Authentication token null. No user authenticated.");
+//            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+//        }
+//
+//        return interceptedMethod.proceed();
+//    }
 }

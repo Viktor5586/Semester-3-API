@@ -8,9 +8,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.WebApplicationContext;
+import s3.project.springbootbackend.configuration.Generated;
 import s3.project.springbootbackend.domain.AccessToken;
 
 @Configuration
+@Generated
 public class RequestAuthenticatedUserProvider {
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
