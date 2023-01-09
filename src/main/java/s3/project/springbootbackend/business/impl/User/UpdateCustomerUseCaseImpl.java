@@ -35,10 +35,12 @@ public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
 
     private boolean getOldPasswordFromRequestAndCompareWithDbOne(Long id, String oldPassword){
         //try{
+        System.out.println(userRepository.findByCustomerId(id));
             UserEntity user = userRepository.findByCustomerId(id);
             if(user != null){
+                System.out.println("EncodedPassword: " + passwordEncoder.encode("1234"));
                 String password = user.getPassword();
-                if(passwordEncoder.matches(oldPassword, String.valueOf(password)))return true;
+                if(passwordEncoder.matches(oldPassword, String.valueOf(password))) return true;
                 //if(oldPassword.equals(String.valueOf(password)))return true;
                 return false;
             }else {

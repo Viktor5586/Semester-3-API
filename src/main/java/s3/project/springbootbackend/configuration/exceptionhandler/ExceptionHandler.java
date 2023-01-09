@@ -1,5 +1,6 @@
 package s3.project.springbootbackend.configuration.exceptionhandler;
 
+import lombok.Generated;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,7 @@ import java.util.List;
 
 import static net.logstash.logback.argument.StructuredArguments.kv;
 
+@Generated
 @ControllerAdvice
 @Slf4j
 public class ExceptionHandler {

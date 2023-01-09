@@ -34,7 +34,7 @@ public class CreateCustomerUseCaseImplTest {
                 .username("test@test.com").password("aaaa").build();
         CustomerEntity customer = CustomerEntity.builder().id(1L).firstName("Test").lastName("Testing").build();
         when(repository.save(CustomerEntity.builder().firstName("Test").lastName("Testing").build())).thenReturn(customer);
-        when(passwordEncoder.encode(request.getPassword())).thenReturn("encodedPassword");
+//        when(passwordEncoder.encode(request.getPassword())).thenReturn("encodedPassword");
         when(userRepository.save(any())).thenReturn(null);
         //when(customerRepository.save(any())).thenReturn(null);
         CreateCustomerResponse actualResponse = createCustomerUseCase.createUser(request);

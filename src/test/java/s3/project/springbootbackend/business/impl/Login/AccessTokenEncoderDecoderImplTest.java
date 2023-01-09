@@ -14,18 +14,24 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class AccessTokenEncoderDecoderImplTest {
-//    @Mock
-//    private Key key;
-//    @InjectMocks
-//    AccessTokenEncoderDecoderImpl accessTokenEncoderDecoder;
+    @Mock
+    private Key key;
+    @InjectMocks
+    AccessTokenEncoderDecoderImpl accessTokenEncoderDecoder;
 //    @Test
 //    void encode_successful() {
-//        List<String> role = RoleEnum.EMPLOYEE.stream;
-//        AccessToken accessToken = AccessToken.builder().subject("Sth").roles(Set.of(UserRoleEntity.builder().role(RoleEnum.EMPLOYEE))).build();
-//    }
+//        when(key.)
+//        String actual = accessTokenEncoderDecoder.encode(AccessToken.builder().subject("Test").roles(List.of("EMPLOYEE"))
+//                .username("test@test.com").customerId(null).employeeId(1L).build());
 //
+//        System.out.println(actual);
+
+//    }
+
 //    @Test
 //    void decode() {
 //    }
