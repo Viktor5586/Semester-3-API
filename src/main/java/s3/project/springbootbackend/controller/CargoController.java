@@ -1,6 +1,7 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,6 @@ import s3.project.springbootbackend.business.useCases.Cargo.ApproveCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.DeleteCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
-import s3.project.springbootbackend.configuration.Generated;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
 import s3.project.springbootbackend.domain.Requests.Cargo.ApproveCargoRequest;
 import s3.project.springbootbackend.domain.Requests.Cargo.CreateCargoRequest;
