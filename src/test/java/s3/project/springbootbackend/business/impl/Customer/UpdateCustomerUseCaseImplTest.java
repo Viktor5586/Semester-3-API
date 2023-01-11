@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import s3.project.springbootbackend.business.impl.User.UpdateCustomerUseCaseImpl;
@@ -21,15 +20,13 @@ import java.util.Set;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-
 public class UpdateCustomerUseCaseImplTest {
     @Mock
     CustomerRepository customerRepository;
     @Mock
     UserRepository userRepository;
-//    @Mock
-//    private PasswordEncoder passwordEncoder;
-PasswordEncoder passwordEncoder = Mockito.mock(PasswordEncoder.class);
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
     UpdateCustomerUseCaseImpl updateCustomerUseCase;
