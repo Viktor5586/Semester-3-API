@@ -5,7 +5,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import s3.project.springbootbackend.business.exeptions.InvalidCredentialsException;
 import s3.project.springbootbackend.business.useCases.LogIn.AccessTokenEncoder;
 import s3.project.springbootbackend.domain.AccessToken;
 import s3.project.springbootbackend.domain.Requests.LogIn.LogInRequest;
@@ -76,5 +78,30 @@ class LogInUseCaseImplTest {
                 .customerId(newUser.getCustomer().getId())
                 .employeeId(null)
                 .build());
+    }
+    @Test
+    void login_shouldThrowInvalidCredentialsException() {
+        try {
+            CustomerEntity customer = CustomerEntity.builder().id(1L).firstName("Test").lastName("Testing").build();
+            UserEntity user = UserEntity.builder().id(2L).username("test@test.com").password("1234").customer(customer).build();
+            UserEntity newUser = UserEntity.builder()
+                    .id(2L)
+                    .username("test@test.com")
+                    .password("encoded")
+                    .customer(customer)
+                    .userRoles(Set.of(UserRoleEntity.builder().id(3L)
+                            .role(RoleEnum.CUSTOMER)
+                            .user(user).build()))
+                    .build();
+            when(userRepository.findByUsername("test@test.com"))
+                    .thenReturn(null);
+            logInUseCase.login(LogInRequest.builder()
+                    .username("test@test.com")
+                    .password("1234")
+                    .build());
+        }catch (InvalidCredentialsException exception){
+            assertEquals(HttpStatus.BAD_REQUEST,exception.getStatus());
+            assertEquals("INVALID_CREDENTIALS", exception.getReason());
+        }
     }
 }

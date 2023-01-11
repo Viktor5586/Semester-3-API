@@ -1,13 +1,13 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
-import org.springframework.http.ResponseEntity;
+import lombok.Generated;
 import org.springframework.web.bind.annotation.*;
 import s3.project.springbootbackend.business.useCases.statistics.*;
 
 import java.util.*;
 
+@Generated
 @RestController
 @RequestMapping("/statistics")
 @AllArgsConstructor

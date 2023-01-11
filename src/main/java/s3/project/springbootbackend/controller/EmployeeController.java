@@ -1,6 +1,7 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.Generated;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import s3.project.springbootbackend.domain.Responses.Employee.GetAllEmployeesRes
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
+@Generated
 @RestController
 @RequestMapping("/employees")
 @AllArgsConstructor

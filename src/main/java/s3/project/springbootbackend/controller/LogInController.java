@@ -1,5 +1,6 @@
 package s3.project.springbootbackend.controller;
 
+import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import s3.project.springbootbackend.domain.Responses.LogInResponse;
 
 import javax.validation.Valid;
 
+@Generated
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(origins = {"http://localhost:3000"})

@@ -10,6 +10,7 @@ import s3.project.springbootbackend.business.useCases.Cargo.ApproveCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.CreateCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.DeleteCargoUseCase;
 import s3.project.springbootbackend.business.useCases.Cargo.GetAllCargosUseCase;
+import s3.project.springbootbackend.configuration.Generated;
 import s3.project.springbootbackend.configuration.security.isauthenticated.IsAuthenticated;
 import s3.project.springbootbackend.domain.Requests.Cargo.ApproveCargoRequest;
 import s3.project.springbootbackend.domain.Requests.Cargo.CreateCargoRequest;
@@ -20,6 +21,7 @@ import s3.project.springbootbackend.domain.Responses.Cargo.GetAllCargosResponse;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
+@Generated
 @RestController
 @RequestMapping("/cargos")
 @CrossOrigin(origins = {"http://localhost:3000"})

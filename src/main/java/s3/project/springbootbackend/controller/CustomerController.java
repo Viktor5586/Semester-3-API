@@ -1,6 +1,7 @@
 package s3.project.springbootbackend.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.Generated;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import s3.project.springbootbackend.domain.Responses.Customer.GetAllUsersRespons
 import javax.validation.Valid;
 import java.util.Optional;
 
+@Generated
 @RestController
 @RequestMapping("/users")
 @AllArgsConstructor
