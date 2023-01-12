@@ -10,6 +10,7 @@ import s3.project.springbootbackend.business.impl.User.GetCustomerUseCaseImpl;
 import s3.project.springbootbackend.domain.AccessToken;
 import s3.project.springbootbackend.domain.Entities.Customer;
 import s3.project.springbootbackend.persistence.Entities.CustomerEntity;
+import s3.project.springbootbackend.persistence.Entities.RoleEnum;
 import s3.project.springbootbackend.persistence.repositories.CustomerRepository;
 
 import java.util.Optional;
@@ -36,16 +37,12 @@ class GetCustomerUseCaseImplTest {
     void getCustomer_shouldReturnAuthorizationError(){
         try {
             Optional<CustomerEntity> user1 = Optional.of(CustomerEntity.builder().id(1L).firstName("sth").lastName("sth2").build());
-
-//            when(customerRepository.findById(1L))
-//                    .thenReturn(user1);
-
-            Optional<Customer> actual = getUserUseCase.getUser(1L);
+            when(requestAccessToken.hasRole(RoleEnum.CUSTOMER.name())).thenReturn(true);
+            when(requestAccessToken.getCustomerId()).thenReturn(2L);
+            getUserUseCase.getUser(1L);
         }catch (UnauthorizedDataAccessException exception){
             assertEquals(exception.getReason(), "CUSTOMER_ID_NOT_FROM_LOGGED_IN_USER");
-            verify(customerRepository).findById(1L);
         }
-
     }
 
     @Test

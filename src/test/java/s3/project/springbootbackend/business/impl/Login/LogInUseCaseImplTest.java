@@ -84,20 +84,28 @@ class LogInUseCaseImplTest {
         try {
             CustomerEntity customer = CustomerEntity.builder().id(1L).firstName("Test").lastName("Testing").build();
             UserEntity user = UserEntity.builder().id(2L).username("test@test.com").password("1234").customer(customer).build();
-            UserEntity newUser = UserEntity.builder()
-                    .id(2L)
-                    .username("test@test.com")
-                    .password("encoded")
-                    .customer(customer)
-                    .userRoles(Set.of(UserRoleEntity.builder().id(3L)
-                            .role(RoleEnum.CUSTOMER)
-                            .user(user).build()))
-                    .build();
             when(userRepository.findByUsername("test@test.com"))
                     .thenReturn(null);
             logInUseCase.login(LogInRequest.builder()
                     .username("test@test.com")
                     .password("1234")
+                    .build());
+        }catch (InvalidCredentialsException exception){
+            assertEquals(HttpStatus.BAD_REQUEST,exception.getStatus());
+            assertEquals("INVALID_CREDENTIALS", exception.getReason());
+        }
+    }
+
+    @Test
+    void login_shouldThrowInvalidCredentialsExceptionWhenPassWrongPassword() {
+        try {
+            CustomerEntity customer = CustomerEntity.builder().id(1L).firstName("Test").lastName("Testing").build();
+            UserEntity user = UserEntity.builder().id(2L).username("test@test.com").password("1234").customer(customer).build();
+            when(userRepository.findByUsername("test@test.com"))
+                    .thenReturn(user);
+            logInUseCase.login(LogInRequest.builder()
+                    .username("test@test.com")
+                    .password("12345")
                     .build());
         }catch (InvalidCredentialsException exception){
             assertEquals(HttpStatus.BAD_REQUEST,exception.getStatus());

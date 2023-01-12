@@ -5,7 +5,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import s3.project.springbootbackend.business.exeptions.InvalidDataInRequest;
 import s3.project.springbootbackend.business.impl.User.CreateCustomerUseCaseImpl;
 import s3.project.springbootbackend.domain.Requests.Customer.CreateCustomerRequest;
 import s3.project.springbootbackend.domain.Responses.Customer.CreateCustomerResponse;
@@ -42,9 +44,20 @@ public class CreateCustomerUseCaseImplTest {
 
         assertEquals(expectedResponse, actualResponse);
         verify(repository, times(1)).save(any());
+    }
 
+    @Test
+    void createEmployee_shouldThrowInvalidDataInRequestException(){
+        try {
+            CreateCustomerRequest request = CreateCustomerRequest.builder().firstName("Test").lastName("Testing")
+                    .username("test@test.com").password("aaaa").build();
+            when(userRepository.existsDistinctByUsername(request.getUsername())).thenReturn(true);
 
+            createCustomerUseCase.createUser(request);
 
-
+        }catch (InvalidDataInRequest ex){
+            assertEquals(HttpStatus.BAD_REQUEST, ex.getStatus());
+            assertEquals("EMAIL_ALREADY_EXISTS", ex.getReason());
+        }
     }
 }
