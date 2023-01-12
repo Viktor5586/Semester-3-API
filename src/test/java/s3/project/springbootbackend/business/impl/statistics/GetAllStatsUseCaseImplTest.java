@@ -6,14 +6,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import s3.project.springbootbackend.business.useCases.statistics.*;
-import java.util.List;
+import s3.project.springbootbackend.domain.Responses.Statistics.GetStatisticsResponse;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class GetAllStatsTest {
+class GetAllStatsUseCaseImplTest {
     @Mock
     private GetTruckStatisticsUseCase getTruckStatisticsUseCase;
     @Mock
@@ -33,7 +33,7 @@ class GetAllStatsTest {
 //    @Mock
 //    private CargoRepository cargoRepository;
     @InjectMocks
-    GetAllStats getAllStats;
+GetAllStatsUseCaseImpl getAllStatsUseCaseImpl;
 
     @Test
     void getStats_successful() {
@@ -43,13 +43,24 @@ class GetAllStatsTest {
         when(getCountOfCustomersUseCase.getCountOfCustomers()).thenReturn(1L);
         when(getCountOfEmployeesUseCase.getCountOfEmployees()).thenReturn(1L);
 
-        // there is problem if I specify the date because the method is run 1 sec later and it says that I have invoked wrong parameter
+        // there is problem if I specify the date because the method is run 1 sec later
+        // and it says that I have invoked wrong parameter
+        // that is why I have put any() instead of particular date
         when(getCountOfOrdersCurrentDateUseCase.getOrdersCount(any())).thenReturn(1L);
         when(getCountOfOrdersBeforeCurrentDateUseCase.getOrdersCount(any())).thenReturn(1L);
         when(getCountOfOrdersAfterCurrentDateUseCase.getOrdersCount(any())).thenReturn(1L);
 
-        List<Long> actual = getAllStats.getStats();
-        List<Long> expected = List.of(1L,1L,1L,1L,1L,1L,1L,1L);
+        GetStatisticsResponse actual = getAllStatsUseCaseImpl.getStats();
+        GetStatisticsResponse expected = GetStatisticsResponse.builder()
+                .trucks(1L)
+                .approved(1L)
+                .notApproved(1L)
+                .customers(1L)
+                .employees(1L)
+                .ordersToday(1L)
+                .ordersBefore(1L)
+                .ordersAfter(1L)
+                .build();
         assertEquals(expected, actual);
     }
 }

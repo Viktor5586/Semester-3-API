@@ -1,8 +1,9 @@
 package s3.project.springbootbackend.business.useCases.statistics;
 
 
-import java.util.List;
+import s3.project.springbootbackend.domain.Responses.Statistics.GetStatisticsResponse;
+
 
 public interface GetAllStatsUseCase {
-    List<Long> getStats();
+    GetStatisticsResponse getStats();
 }

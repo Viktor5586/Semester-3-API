@@ -17,7 +17,6 @@ public class ValidateTruck {
     private static boolean validateLicencePlate(CreateTruckRequest request){
         Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(request.getLicencePlate());
-//        boolean b = m.find();
         if(!m.find()){
             return true;
         }else {
@@ -28,7 +27,6 @@ public class ValidateTruck {
     private static boolean validateLocation(CreateTruckRequest request){
         Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(request.getLocation());
-//        boolean b = m.find();
         if(!m.find()){
             return true;
         }else {
