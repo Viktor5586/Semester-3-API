@@ -58,17 +58,4 @@ class GetCustomerUseCaseImplTest {
         verify(requestAccessToken).setCustomerId(user1.get().getId());
         verify(customerRepository).findById(1L);
     }
-
-//    @Test
-//    void getCustomerProvidingWrongId(){
-//        Optional<CustomerEntity> user1 = Optional.of(CustomerEntity.builder().id(1L).firstName("sth").lastName("sth2").build());
-//        requestAccessToken.setCustomerId(user1.get().getId());
-//        when(customerRepository.findById(1L))
-//                .thenReturn(user1);
-//        Optional<Customer> actual = getUserUseCase.getUser(2L);
-//        assertThat(user1).usingRecursiveComparison().isEqualTo(actual);
-//
-//        verify(requestAccessToken).setCustomerId(user1.get().getId());
-////        verify(customerRepository).findById(1L);
-//    }
 }

@@ -20,7 +20,7 @@ public class ApproveCargoUseCaseImpl implements ApproveCargoUseCase {
             if (cargo.isApproved() == false) {
                 cargoRepository.approve(request.getId());
             } else {
-                throw new RuntimeException("Should be custom exception"); //Should be custom exception
+                throw new RuntimeException("Already approved"); //Should be custom exception
             }
         }catch (Exception exception){
             throw new RuntimeException("Something went wrong!");
